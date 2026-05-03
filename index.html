@@ -20,10 +20,10 @@
 
         <nav class="nav flex-column sidebar-nav">
             <p class="nav-label">Main</p>
-            <a class="nav-link active" href="#" id="nav-dashboard"><i class="bi bi-grid"></i> Dashboard</a>
-            <a class="nav-link" href="#" id="nav-customers"><i class="bi bi-people"></i> Customers</a>
-            <a class="nav-link" href="#" id="nav-items"><i class="bi bi-box"></i> Items</a>
-            <a class="nav-link" href="#" id="nav-orders"><i class="bi bi-cart"></i> Orders</a>
+            <a class="nav-link active" href="#" id="nav-dashboard"><i class="bi bi-grid-fill"></i> Dashboard</a>
+            <a class="nav-link" href="#" id="nav-customers"><i class="bi bi-people-fill"></i> Customers</a>
+            <a class="nav-link" href="#" id="nav-items"><i class="bi bi-box-fill"></i> Items</a>
+            <a class="nav-link" href="#" id="nav-orders"><i class="bi bi-cart-fill"></i> Orders</a>
             <a class="nav-link" href="#" id="nav-history"><i class="bi bi-clock-history"></i> Order History</a>
         </nav>
 
@@ -157,7 +157,7 @@
             <div class="container mt-4">
                 <div class="customer-header d-flex align-items-center">
                     <i class="bi bi-people-fill"></i>
-                    <h2>Customer</h2>
+                    <h2>CUSTOMER</h2>
                     <button class="btn btn-primary" id="btn-new-customer">+ New Customer</button>
                 </div>
 
@@ -228,11 +228,11 @@
             </div>
         </section>
 
-        <section id="items-view" style="display: none;">
+        <section id="item-view" style="display: none;">
             <div class="container mt-4">
                 <div class="customer-header d-flex align-items-center">
-                    <i class="bi bi-people-fill"></i>
-                    <h2>Item</h2>
+                    <i class="bi bi-box-fill"></i>
+                    <h2>ITEMS</h2>
                     <button class="btn btn-primary" id="btn-new-item">+ New Items</button>
                 </div>
 
@@ -244,18 +244,24 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Address</th>
-                                <th>Contact</th>
-                                <th>Action</th>
+                                <th>Item Name</th>
+                                <th>Brand</th>
+                                <th>Model</th>
+                                <th>Quantity</th>
+                                <th>Buying Price</th>
+                                <th>Selling Price</th>
+                                <th>Status</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Yasiru lakshan</td>
-                                <td>Colombo</td>
-                                <td>0712345678</td>
+                                <td><i class="bi bi-mouse me-2"></i> Mouse</td>
+                                <td>Logitech</td>
+                                <td>G510</td>
+                                <td>20</td>
+                                <td>8000.00</td>
+                                <td>10000.00</td>
                                 <td>
                                     <button class="btn-edit-action edit btn btn-sm "><i class="bi bi-pencil-square"></i></button>
                                     <button class="btn-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>

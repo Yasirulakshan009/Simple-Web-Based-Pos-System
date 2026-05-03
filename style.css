@@ -406,10 +406,6 @@ input:focus {
     box-shadow: 0 0 5px black;
 }
 
-#customer-view {
-    display: none;
-}
-
 .glass-overlay {
     position: fixed;
     top: 0;
@@ -433,7 +429,7 @@ input:focus {
     transform: translate(-50%, -50%);
     z-index: 100000;
     width: 400px;
-    height: auto; /* Content එකට අනුව උස වෙනස් වීමට */
+    height: auto;
 
 
 
@@ -500,9 +496,18 @@ input:focus {
     display: block;
 }
 
+.apple-input:focus {
+    background: #fff;
+    border-color: #0468FF !important;
+    box-shadow: 0 0 0 4px rgb(71, 136, 233, 0.2) !important;
+
+}
 .btn-apple-primary {
     color: white !important;
-    border-radius: 10px !important; /* පොඩ්ඩක් රවුම් ගතිය අඩු කළා Apple විදිහට */
+    border-radius: 10px !important;
+    background: linear-gradient(to right, #0468FF , #4788E9);
+    border: 1px solid #0468FF;
+    box-shadow: 0 3px 10px 0 #4788E9;
     padding: 10px !important;
     font-size: 0.9rem !important;
     font-weight: 600 !important;
@@ -510,4 +515,7 @@ input:focus {
     cursor: pointer;
 }
 
-
+.btn-apple-primary:hover{
+    background: linear-gradient(to right, #0468FF , #4788E9);
+    border: 1px solid #0468FF;
+}

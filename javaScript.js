@@ -124,9 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
     const customerModal = document.getElementById('add-customer');
     const modalTitle = document.getElementById('modal-title');
     const btnSave = document.getElementById('btn-save');
@@ -158,3 +156,4 @@ document.addEventListener('DOMContentLoaded', function () {
         customerModal.style.display = 'none';
     };
 });
+
