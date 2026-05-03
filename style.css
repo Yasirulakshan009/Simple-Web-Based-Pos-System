@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 .login {
     height: 100vh;
     width: 100vw;
@@ -14,13 +15,14 @@
 
 .login-card {
     height: 350px;
-    width:400px;
     background: rgba(255, 255, 255, 0);
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(34, 221, 74, 0.2);
+    display: flex;
+    justify-content: center;
 }
 
 .login-card > form {
@@ -38,23 +40,44 @@
     margin-top: 10px;
 }
 
-.form-control:focus {
-    border-color: #22DD4A;
-    box-shadow: 0 0 8px rgba(34, 221, 74, 0.5);
+label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #86868b;
+    margin-bottom: 6px;
+    margin-left: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
+
+input {
+    border-radius: 12px !important;
+    border: 1px solid #d2d2d7 !important;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+
+}
+
+input:focus {
+    background: #fff;
+    border-color: #00C42E !important;
+    box-shadow: 0 0 0 4px rgba(31, 196, 67, 0.15) !important;
+
+}
+
 
 .btn-primary {
     background: linear-gradient(to right, rgba(31, 196, 67, 1) 20%, rgba(31, 196, 67, 0.5) 100%);
     border: 1px solid #00C42E;
     box-shadow: 0 3px 10px 0 rgba(31, 196, 67, 0.5);
 
+
 }
 
 .btn-primary:hover {
     background: linear-gradient(to right, rgba(31, 196, 67, 1) 20%, rgba(31, 196, 67, 0.5) 100%);
     border: 1px solid #00C42E;
-    box-shadow: 0 0 8px rgba(31, 196, 67, 0.5);
-
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
 .sidebar {
@@ -66,6 +89,7 @@
     flex-direction: column;
     padding: 20px;
     position: fixed;
+    z-index: 1000;
 }
 
 .logo-text {
@@ -92,13 +116,13 @@
 }
 
 .sidebar-nav .nav-link {
-    color: #8a8a8a;
+    color: #000000;
     padding: 8px 15px;
     border-radius: 10px;
     margin-bottom: 5px;
     transition: 0.3s;
-    font-weight: 400;
     font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .sidebar-nav .nav-link i {
@@ -138,7 +162,7 @@
     color: #333;
     padding: 10px;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
@@ -193,8 +217,9 @@
 }
 
 .stat-label {
-    font-size: 13px;
-    color: #888;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #86868b;
     margin-bottom: 15px;
 }
 .stat-value {
@@ -203,8 +228,8 @@
 
 }
 .stat-trend {
-    font-size: 10px;
-    font-weight: 500;
+    font-size: 0.6rem;
+    font-weight: 600;
     margin: 0;
 }
 
@@ -286,7 +311,7 @@
 
 .recent-tbl-box thead th {
     background-color: #e6f9ed;
-    font-weight: 600;
+    font-weight: 700;
     padding: 12px;
 }
 
@@ -302,4 +327,187 @@
     padding: 10px;
     color: #666;
     border-bottom: 2px solid #eaebec;
+    font-size: 0.8rem;
+    font-weight: 700;
 }
+
+.customer-header{
+    margin-top: -30px;
+    margin-left: -10px;
+}
+
+.customer-header i {
+    font-size: 4rem;
+    margin-right: 15px;
+    z-index: 100;
+    color: white;
+}
+
+.customer-header h2 {
+    margin-top: 10px;
+    z-index: 100;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #000000;
+    opacity: 0.5;
+
+}
+
+.customer-header .btn {
+    position: absolute;
+    right: 20px;
+    margin-top: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.customer-header::before{
+    content: " ";
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: #06EC38;
+    display: block;
+    position: absolute;
+    left: -60px;
+    top: -20px;
+    z-index: 0;
+    filter: blur(30px);
+}
+
+.hr {
+    width: 98%;
+    height: 1px;
+    background: #000000;
+    opacity: 0.2;
+    margin-top: 20px;
+}
+
+#customer-view .recent-tbl-box {
+    margin-top: 20px;
+    box-shadow: 0 0 0 transparent;
+    background-color: transparent;
+}
+
+.edit {
+    background: linear-gradient(to bottom, #0468FF , #4788E9);
+    color: white;
+    margin-right: 2px;
+}
+
+.delete {
+    background: linear-gradient(to bottom, #990000 , #FF0000);
+    color: white;
+    margin-left: 2px;
+}
+
+.delete:hover,.edit:hover {
+    color: white;
+    box-shadow: 0 0 5px black;
+}
+
+#customer-view {
+    display: none;
+}
+
+.glass-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 99999;
+}
+
+.apple-window {
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.6) ;
+    border: 1px solid rgba(255, 255, 255, 0.3) ;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2) ;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100000;
+    width: 400px;
+    height: auto; /* Content එකට අනුව උස වෙනස් වීමට */
+
+
+
+}
+.win-header {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.win-title{
+    color: #000000;
+    font-size: 0.8rem;
+    font-weight:600;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.dots {
+    display: flex;
+    gap: 8px;
+    padding: 15px 5px;
+
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+
+}
+.red {
+    background: #ff5f56;
+    border: 1px solid #e0443e;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.yellow {
+    background: #ffbd2e;
+    border: 1px solid #dea123;
+}
+.green {
+    background: #27c93f;
+    border: 1px solid #1aab29;
+}
+
+.red> h6 {
+    color: white;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    opacity: 0;
+}
+
+.dots:hover h6 {
+    opacity: 1;
+}
+
+.apple-input {
+    padding: 8px 10px;
+    width: 100% !important;
+    display: block;
+}
+
+.btn-apple-primary {
+    color: white !important;
+    border-radius: 10px !important; /* පොඩ්ඩක් රවුම් ගතිය අඩු කළා Apple විදිහට */
+    padding: 10px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    width: 100%;
+    cursor: pointer;
+}
+
+

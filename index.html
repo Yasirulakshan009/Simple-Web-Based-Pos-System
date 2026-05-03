@@ -20,11 +20,11 @@
 
         <nav class="nav flex-column sidebar-nav">
             <p class="nav-label">Main</p>
-            <a class="nav-link active" href="#"><i class="bi bi-grid"></i> Dashboard</a>
-            <a class="nav-link" href="#"><i class="bi bi-people"></i> Customers</a>
-            <a class="nav-link" href="#"><i class="bi bi-box"></i> Items</a>
-            <a class="nav-link" href="#"><i class="bi bi-cart"></i> Orders</a>
-            <a class="nav-link" href="#"><i class="bi bi-clock-history"></i> Order History</a>
+            <a class="nav-link active" href="#" id="nav-dashboard"><i class="bi bi-grid"></i> Dashboard</a>
+            <a class="nav-link" href="#" id="nav-customers"><i class="bi bi-people"></i> Customers</a>
+            <a class="nav-link" href="#" id="nav-items"><i class="bi bi-box"></i> Items</a>
+            <a class="nav-link" href="#" id="nav-orders"><i class="bi bi-cart"></i> Orders</a>
+            <a class="nav-link" href="#" id="nav-history"><i class="bi bi-clock-history"></i> Order History</a>
         </nav>
 
         <div class="sidebar-footer mt-auto">
@@ -36,120 +36,239 @@
         <nav class="navbar bg-body-tertiary sticky-top">
             <div class="container-fluid">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-0" type="search" placeholder="Search Recent..." aria-label="Search"/>
+                    <input class="form-control me-0" type="search" placeholder="Search..." aria-label="Search"/>
                 </form>
             </div>
         </nav>
 
-        <div class="container text-center mt-4">
-            <div class="row g-2 gx-3">
+        <section id="dashboard-view" >
+            <div class="container text-center mt-4">
+                <div class="row g-2 gx-3">
 
-                <div class="col-md-3 custom-width">
-                    <div class="stat-card ">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="text-start">
-                                <p class="stat-label">Customers</p>
-                                <h4 class="stat-value text-success">10</h4>
-                                <p class="stat-trend text-primary">from last month</p>
+                    <div class="col-md-3 custom-width">
+                        <div class="stat-card ">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-start">
+                                    <p class="stat-label">Customers</p>
+                                    <h4 class="stat-value text-success">10</h4>
+                                    <p class="stat-trend text-primary">from last month</p>
+                                </div>
+                                <div class="stat-icon-box"><i class="bi bi-people-fill"></i></div>
                             </div>
-                            <div class="stat-icon-box"><i class="bi bi-people-fill"></i></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 custom-width">
-                    <div class="stat-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="text-start">
-                                <p class="stat-label">Items</p>
-                                <h4 class="stat-value text-success">2</h4>
-                                <p class="stat-trend text-primary">from last month</p>
+                    <div class="col-md-3 custom-width">
+                        <div class="stat-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-start">
+                                    <p class="stat-label">Items</p>
+                                    <h4 class="stat-value text-success">2</h4>
+                                    <p class="stat-trend text-primary">from last month</p>
+                                </div>
+                                <div class="stat-icon-box"><i class="bi bi-list-task"></i></div>
                             </div>
-                            <div class="stat-icon-box"><i class="bi bi-list-task"></i></div>
                         </div>
                     </div>
-                </div>
 
-                <div class="w-100 d-none d-md-block"></div>
+                    <div class="w-100 d-none d-md-block"></div>
 
-                <div class="col-md-3 custom-width" >
-                    <div class="stat-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="text-start">
-                                <p class="stat-label">Orders</p>
-                                <h4 class="stat-value text-success">2</h4>
-                                <p class="stat-trend text-primary">from last month</p>
+                    <div class="col-md-3 custom-width" >
+                        <div class="stat-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-start">
+                                    <p class="stat-label">Orders</p>
+                                    <h4 class="stat-value text-success">2</h4>
+                                    <p class="stat-trend text-primary">from last month</p>
+                                </div>
+                                <div class="stat-icon-box"><i class="bi bi-cart-fill"></i></div>
                             </div>
-                            <div class="stat-icon-box"><i class="bi bi-cart-fill"></i></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 custom-width">
-                    <div class="stat-card">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="text-start">
-                                <p class="stat-label">Total Revenue</p>
-                                <h4 class="stat-value text-success">120,000</h4>
-                                <p class="stat-trend text-primary">from last month</p>
+                    <div class="col-md-3 custom-width">
+                        <div class="stat-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="text-start">
+                                    <p class="stat-label">Total Revenue</p>
+                                    <h4 class="stat-value text-success">120,000</h4>
+                                    <p class="stat-trend text-primary">from last month</p>
+                                </div>
+                                <div class="stat-icon-box"><i class="bi bi-cash-stack"></i></div>
                             </div>
-                            <div class="stat-icon-box"><i class="bi bi-cash-stack"></i></div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-        </div>
-
-        <div class="mt-5">
-            <div class="card-body">
-                <canvas id="myLineChart"></canvas>
-            </div>
-        </div>
-
-        <div class="recent-tbl-box">
-            <div class="table-header">
-                <h5 class="fw-bold m-0">Recent Orders</h5>
-                <div class=" recent-btn d-grid gap-0 d-md-flex justify-content-md-end">
-                    <button class="btn btn-outline-dark me-md-0" type="button">See All</button>
-                    <button class="btn btn-primary" type="button">+ Add Items</button>
                 </div>
             </div>
 
-            <div class="table-responsive p-3">
-                <table class="table table-borderless align-middle text-center">
-                    <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Date</th>
-                        <th>Total</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Yasiru lakshan</td>
-                        <td>2026/02/03</td>
-                        <td>1000.00</td>
-                    </tr><tr>
-                        <td>1</td>
-                        <td>Yasiru lakshan</td>
-                        <td>2026/02/03</td>
-                        <td>1000.00</td>
-                    </tr><tr>
-                        <td>1</td>
-                        <td>Yasiru lakshan</td>
-                        <td>2026/02/03</td>
-                        <td>1000.00</td>
-                    </tr><tr>
-                        <td>1</td>
-                        <td>Yasiru lakshan</td>
-                        <td>2026/02/03</td>
-                        <td>1000.00</td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="mt-5">
+                <div class="card-body">
+                    <canvas id="myLineChart"></canvas>
+                </div>
             </div>
-        </div>
+
+            <div class="recent-tbl-box">
+                <div class="table-header">
+                    <h5 class="fw-bold m-0">Recent Orders</h5>
+                    <div class=" recent-btn d-grid gap-0 d-md-flex justify-content-md-end">
+                        <button class="btn btn-outline-dark me-md-0" type="button">See All</button>
+                        <button class="btn btn-primary" type="button">+ Add Items</button>
+                    </div>
+                </div>
+
+                <div class="table-responsive p-3">
+                    <table class="table table-borderless align-middle text-center">
+                        <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Yasiru lakshan</td>
+                            <td>2026/02/03</td>
+                            <td>1000.00</td>
+                        </tr><tr>
+                            <td>1</td>
+                            <td>Yasiru lakshan</td>
+                            <td>2026/02/03</td>
+                            <td>1000.00</td>
+                        </tr><tr>
+                            <td>1</td>
+                            <td>Yasiru lakshan</td>
+                            <td>2026/02/03</td>
+                            <td>1000.00</td>
+                        </tr><tr>
+                            <td>1</td>
+                            <td>Yasiru lakshan</td>
+                            <td>2026/02/03</td>
+                            <td>1000.00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="customer-view">
+            <div class="container mt-4">
+                <div class="customer-header d-flex align-items-center">
+                    <i class="bi bi-people-fill"></i>
+                    <h2>Customer</h2>
+                    <button class="btn btn-primary" id="btn-new-customer">+ New Customer</button>
+                </div>
+
+                <div class="hr"></div>
+
+                <div class="recent-tbl-box">
+                    <div class="table-responsive p-3">
+                        <table class="table table-borderless align-middle text-center" id="customer-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Contact</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Yasiru lakshan</td>
+                                <td>Colombo</td>
+                                <td>0712345678</td>
+                                <td>
+                                    <button class="btn-edit-action edit btn btn-sm "><i class="bi bi-pencil-square"></i></button>
+                                    <button class="btn-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="add-customer" style="display: none;">
+                <div class="glass-overlay"></div>
+                <div class="apple-window">
+                    <div class="win-header">
+                        <div class="dots">
+                            <div class="dot red" id="close-modal"><h6>x</h6></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
+                        </div>
+                        <span class="win-title" id="modal-title">New Customer</span>
+                    </div>
+
+                    <div class="p-4">
+                        <form id="customerForm">
+                            <div class="mb-3">
+                                <label class="apple-label">Full Name</label>
+                                <input type="text" class="form-control apple-input" placeholder="Name">
+                            </div>
+                            <div class="mb-3">
+                                <label class="apple-label">Address</label>
+                                <input type="text" class="form-control apple-input" placeholder="Address">
+                            </div>
+                            <div class="mb-3">
+                                <label class="apple-label">Contact Number</label>
+                                <input type="tel" class="form-control apple-input" placeholder="Contact">
+                            </div>
+
+                            <div class="mt-4 px-1">
+                                <button type="button" id="btn-save" class="btn-apple-primary btn-primary">Save Customer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="items-view" style="display: none;">
+            <div class="container mt-4">
+                <div class="customer-header d-flex align-items-center">
+                    <i class="bi bi-people-fill"></i>
+                    <h2>Item</h2>
+                    <button class="btn btn-primary" id="btn-new-item">+ New Items</button>
+                </div>
+
+                <div class="hr"></div>
+
+                <div class="recent-tbl-box">
+                    <div class="table-responsive p-3">
+                        <table class="table table-borderless align-middle text-center" id="item-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Contact</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Yasiru lakshan</td>
+                                <td>Colombo</td>
+                                <td>0712345678</td>
+                                <td>
+                                    <button class="btn-edit-action edit btn btn-sm "><i class="bi bi-pencil-square"></i></button>
+                                    <button class="btn-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
     </main>
 </section>
 
