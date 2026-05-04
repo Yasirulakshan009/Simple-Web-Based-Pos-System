@@ -3,13 +3,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const navDashboard = document.getElementById('nav-dashboard');
     const navCustomers = document.getElementById('nav-customers');
     const navItems = document.getElementById('nav-items');
+    const navOrders = document.getElementById('nav-orders');
 
     const dashboardView = document.getElementById('dashboard-view');
     const customerView = document.getElementById('customer-view');
     const itemView = document.getElementById('item-view');
+    const orderView = document.getElementById('order-view');
 
-    const allViews = [dashboardView, customerView, itemView];
-    const allNavLinks = [navDashboard, navCustomers, navItems];
+    const allViews = [dashboardView, customerView, itemView, orderView];
+    const allNavLinks = [navDashboard, navCustomers, navItems, navOrders];
 
     function showView(targetView, activeLink) {
         allViews.forEach(view => {
@@ -41,6 +43,13 @@ document.addEventListener('DOMContentLoaded', function () {
         navItems.addEventListener('click', (e) => {
             e.preventDefault();
             showView(itemView, navItems);
+        });
+    }
+
+    if (navOrders) {
+        navOrders.addEventListener('click', (e) => {
+            e.preventDefault();
+            showView(orderView, navOrders);
         });
     }
 
@@ -125,15 +134,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    const customerModal = document.getElementById('add-customer');
-    const modalTitle = document.getElementById('modal-title');
+    const addCustomer = document.getElementById('add-customer');
+    const modalTitle = document.getElementById('customer-title');
     const btnSave = document.getElementById('btn-save');
 
     document.getElementById('btn-new-customer').onclick = function() {
         modalTitle.innerText = "Add New Customer";
         btnSave.innerText = "Save Customer";
         document.getElementById('customerForm').reset();
-        customerModal.style.display = 'block';
+        addCustomer.style.display = 'block';
     };
 
     document.querySelector('#customer-table').addEventListener('click', function(e) {
@@ -142,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('customerForm').reset();
             modalTitle.innerText = "Edit Customer";
             btnSave.innerText = "Update Customer";
-            customerModal.style.display = 'block';
+            addCustomer.style.display = 'block';
         }
 
         if (e.target.closest('.btn-delete-action')) {
@@ -153,7 +162,38 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('close-modal').onclick = function() {
-        customerModal.style.display = 'none';
+        addCustomer.style.display = 'none';
+    };
+
+    const addItem = document.getElementById('add-item');
+    const itemTitle = document.getElementById('item-title');
+    const itemSave = document.getElementById('item-btn-save');
+
+    document.getElementById('btn-new-item').onclick = function() {
+        itemTitle.innerText = "Add New Item";
+        itemSave.innerText = "Save Item";
+        document.getElementById('itemForm').reset();
+        addItem.style.display = 'block';
+    };
+
+    document.querySelector('#item-table').addEventListener('click', function(e) {
+
+        if (e.target.closest('.item-edit-action')) {
+            document.getElementById('itemForm').reset();
+            itemTitle.innerText = "Edit Item";
+            itemSave.innerText = "Update Item";
+            addItem.style.display = 'block';
+        }
+
+        if (e.target.closest('.item-delete-action')) {
+            if (confirm("Are you sure you want to delete this item?")) {
+                e.target.closest('tr').remove();
+            }
+        }
+    });
+
+    document.getElementById('item-close-modal').onclick = function() {
+        addItem.style.display = 'none';
     };
 });
 

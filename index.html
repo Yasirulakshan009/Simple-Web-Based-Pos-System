@@ -201,7 +201,7 @@
                             <div class="dot yellow"></div>
                             <div class="dot green"></div>
                         </div>
-                        <span class="win-title" id="modal-title">New Customer</span>
+                        <span class="win-title" id="customer-title">New Customer</span>
                     </div>
 
                     <div class="p-4">
@@ -219,8 +219,9 @@
                                 <input type="tel" class="form-control apple-input" placeholder="Contact">
                             </div>
 
-                            <div class="mt-4 px-1">
-                                <button type="button" id="btn-save" class="btn-apple-primary btn-primary">Save Customer</button>
+                            <div class="mt-4 d-flex gap-2 ">
+                                <button type="button" id="btn-save" class="btn-apple-primary btn-primary w-60">Save Item</button>
+                                <button type="button" id="clear" class="btn-apple-secondary  w-50">Clear All</button>
                             </div>
                         </form>
                     </div>
@@ -250,21 +251,26 @@
                                 <th>Quantity</th>
                                 <th>Buying Price</th>
                                 <th>Selling Price</th>
-                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td>1</td>
-                                <td><i class="bi bi-mouse me-2"></i> Mouse</td>
+                                <td>
+                                    <div class="d-flex align-items-center justify-content-start ps-3">
+                                        <img src="" class="table-img me-3" alt="item">
+                                        <span>Mouse</span>
+                                    </div>
+                                </td>
                                 <td>Logitech</td>
                                 <td>G510</td>
                                 <td>20</td>
                                 <td>8000.00</td>
                                 <td>10000.00</td>
                                 <td>
-                                    <button class="btn-edit-action edit btn btn-sm "><i class="bi bi-pencil-square"></i></button>
-                                    <button class="btn-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
+                                    <button class="item-edit-action edit btn btn-sm "><i class="bi bi-pencil-square"></i></button>
+                                    <button class="item-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
                                 </td>
                             </tr>
                             </tbody>
@@ -273,7 +279,146 @@
                 </div>
             </div>
 
+            <div id="add-item" style="display: none;">
+                <div class="glass-overlay"></div>
+                <div class="item-apple-window apple-window">
+                    <div class="win-header">
+                        <div class="dots">
+                            <div class="dot red" id="item-close-modal"><h6>x</h6></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
+                        </div>
+                        <span class="win-title" id="item-title">New Customer</span>
+                    </div>
+
+                    <div class="item-form p-4">
+
+                        <div class="image-side">
+                            <div class="image-box" >
+                                <img id="preview" src="">
+                                <div class="hover-overlay"><i class="bi bi-camera-fill fs-2"></i></div>
+                            </div>
+                            <input type="file" id="fileInput" hidden accept="image/*" >
+                            <p class="mt-2 text-muted small fw-bold">Click to upload photo</p>
+                        </div>
+
+                        <div class="form-side">
+                            <form id="itemForm">
+                                <div class="form-grid">
+                                    <div class="mb-3 col-span-2">
+                                        <label class="apple-label">Item Name</label>
+                                        <input type="text" class="form-control apple-input" placeholder="Item Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="apple-label">Brand</label>
+                                        <input type="text" class="form-control apple-input" placeholder="Brand">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="apple-label">Model</label>
+                                        <input type="tel" class="form-control apple-input" placeholder="Model">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="apple-label">Quantity</label>
+                                        <input type="number" class="form-control apple-input" placeholder="0">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="apple-label">Buying Price</label>
+                                        <input type="text" class="form-control apple-input" placeholder="0.00">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="apple-label">Selling Price</label>
+                                        <input type="text" class="form-control apple-input" placeholder="0.00">
+                                    </div>
+
+                                </div>
+
+                                <div class="mt-4 d-flex gap-2 ">
+                                    <button type="button" id="item-btn-save" class="btn-apple-primary btn-primary w-60">Save Item</button>
+                                    <button type="button" id="item-clear" class="btn-apple-secondary  w-50">Clear All</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </section>
+
+        <section id="order-view" >
+            <div class="container mt-4">
+                <div class="customer-header d-flex align-items-center">
+                    <i class="bi bi-cart-fill"></i>
+                    <h2>ORDER</h2>
+                </div>
+
+                <div class="hr"></div>
+
+                <div class="order-cart-apple-window">
+                    <div class="win-header">
+                        <div class="dots">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
+                        </div>
+                        <span class="win-title" id="cart-title">Cart Details</span>
+                    </div>
+
+                    <div class="cart-details1">
+
+                    </div>
+
+                    <div class="cart-details2">
+                        <div class="order-subtotal"><h1>SubTotal (LKR)</h1><span>9000.00</span></div>
+
+                        <div class="p-4">
+                            <form id="orderForm" class="row g-3">
+                                <div class="col-6">
+                                    <label class="apple-label">Search Customer</label>
+                                    <input list="customers" class="apple-input" placeholder="Name">
+                                    <datalist id="customers">
+                                        <option value="C001 - Yasiru Lakshan">
+                                        <option value="C002 - Kamal Perera">
+                                        <option value="C003 - Nimal Silva">
+                                    </datalist>
+                                </div>
+
+                                <div class="col-6">
+                                    <label class="apple-label">Discount</label>
+                                    <input type="text" class="form-control apple-input" placeholder="0.00 LKR">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="hr"></div>
+
+                        <div class="order-subtotal"><h1>Full Payment (LKR)</h1><span>9000.00</span></div>
+
+                        <div class="payment-method">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Cash</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Card</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
+                                <label class="form-check-label" for="inlineRadio3">Mobile Banking</label>
+                            </div>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn btn-primary" id="btn-place-order"><i class="bi bi-cart-check-fill"></i> Place Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
 
     </main>
 </section>
