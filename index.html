@@ -597,11 +597,162 @@
 
         </section>
 
-        <section id="order-history-view">
+        <section id="order-history-view" style="display: none;">
+            <div class="container mt-4">
+                <div class="customer-header d-flex align-items-center">
+                    <i class="bi bi-clock-history"></i>
+                    <h2>ORDER HISTORY</h2>
+                </div>
 
+                <div class="hr"></div>
+
+                <div class="recent-tbl-box">
+                    <div class="table-responsive p-3">
+                        <table class="table table-borderless align-middle text-center" id="history-table">
+                            <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Item</th>
+                                <th>Sub Total</th>
+                                <th>Discount</th>
+                                <th>Total Price</th>
+                                <th>Method</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Yasiru Lakhasn</td>
+                                <td>Mouse</td>
+                                <td>10000.00</td>
+                                <td>1000.00</td>
+                                <td>9000.00</td>
+                                <td>Cash</td>
+                                <td>
+                                    <button class="order-view-action view btn btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="order-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>1</td>
+                                <td>Yasiru Lakhasn</td>
+                                <td>Mouse</td>
+                                <td>10000.00</td>
+                                <td>1000.00</td>
+                                <td>9000.00</td>
+                                <td>Cash</td>
+                                <td>
+                                    <button class="order-view-action view btn btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="order-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>1</td>
+                                <td>Yasiru Lakhasn</td>
+                                <td>Mouse</td>
+                                <td>10000.00</td>
+                                <td>1000.00</td>
+                                <td>9000.00</td>
+                                <td>Cash</td>
+                                <td>
+                                    <button class="order-view-action view btn btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="order-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>1</td>
+                                <td>Yasiru Lakhasn</td>
+                                <td>Mouse</td>
+                                <td>10000.00</td>
+                                <td>1000.00</td>
+                                <td>9000.00</td>
+                                <td>Cash</td>
+                                <td>
+                                    <button class="order-view-action view btn btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="order-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>1</td>
+                                <td>Yasiru Lakhasn</td>
+                                <td>Mouse</td>
+                                <td>10000.00</td>
+                                <td>1000.00</td>
+                                <td>9000.00</td>
+                                <td>Cash</td>
+                                <td>
+                                    <button class="order-view-action view btn btn-sm"><i class="bi bi-eye"></i></button>
+                                    <button class="order-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="order-details" style="display: none;">
+                <div class="glass-overlay"></div>
+                <div class="apple-window history-window">
+                    <div class="win-header">
+                        <div class="dots">
+                            <div class="dot red" id="history-close-modal"><h6>x</h6></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
+                        </div>
+                        <span class="win-title">Order Information</span>
+                    </div>
+
+                    <div class="win-content">
+                        <div class="order-flex-layout">
+
+                            <div class="info-side">
+                                <div class="detail-group">
+                                    <span class="detail-label">Product Name</span>
+                                    <h2 class="detail-val text-dark" id="detail-item-name">MacBook</h2>
+                                </div>
+
+                                <div class="detail-group">
+                                    <span class="detail-label">Model</span>
+                                    <h3 class="detail-val text-blue" id="detail-item-model">Air M4</h3>
+                                </div>
+
+                                <div class="detail-group">
+                                    <span class="detail-label">Brand</span>
+                                    <h3 class="detail-val" id="detail-brand">Apple</h3>
+                                </div>
+
+                                <div class="separator-line"></div>
+
+                                <div class="bottom-details">
+                                    <div class="detail-group">
+                                        <span class="detail-label">Date</span>
+                                        <p class="detail-val-sm" id="detail-date">2026-05-06</p>
+                                    </div>
+                                    <div class="detail-group">
+                                        <span class="detail-label">Total Amount</span>
+                                        <p class="detail-val-sm price-blue" id="detail-total">LKR 450,000</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="image-side">
+                                <div class="apple-glass-card">
+                                    <img src="assest/pictures/macbook.png" id="detail-item-img" alt="Item">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-
-
     </main>
 </section>
 
