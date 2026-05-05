@@ -4,14 +4,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const navCustomers = document.getElementById('nav-customers');
     const navItems = document.getElementById('nav-items');
     const navOrders = document.getElementById('nav-orders');
+    const navHistory = document.getElementById('nav-history');
 
     const dashboardView = document.getElementById('dashboard-view');
     const customerView = document.getElementById('customer-view');
     const itemView = document.getElementById('item-view');
     const orderView = document.getElementById('order-view');
+    const orderHistoryView = document.getElementById('order-history-view');
 
-    const allViews = [dashboardView, customerView, itemView, orderView];
-    const allNavLinks = [navDashboard, navCustomers, navItems, navOrders];
+    const allViews = [dashboardView, customerView, itemView, orderView, orderHistoryView];
+    const allNavLinks = [navDashboard, navCustomers, navItems, navOrders, navHistory];
 
     function showView(targetView, activeLink) {
         allViews.forEach(view => {
@@ -50,6 +52,13 @@ document.addEventListener('DOMContentLoaded', function () {
         navOrders.addEventListener('click', (e) => {
             e.preventDefault();
             showView(orderView, navOrders);
+        });
+    }
+
+    if (navHistory) {
+        navHistory.addEventListener('click', (e) => {
+            e.preventDefault();
+            showView(orderHistoryView, navHistory);
         });
     }
 
