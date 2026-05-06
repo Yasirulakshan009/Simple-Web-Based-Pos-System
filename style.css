@@ -6,6 +6,8 @@
 
 
 .login {
+    background: url('src/main/resources/07bnljlcnm2t3f89rg6yycm-2_181h.jpg') no-repeat center center fixed;
+    background-size: cover;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -15,7 +17,7 @@
 
 .login-card {
     height: 350px;
-    background: rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
@@ -34,7 +36,7 @@
 }
 
 .login-title{
-    color: #22DD4A;
+    color: #ffffff;
     font-size: 2rem;
     align-self: center;
     margin-top: 10px;
@@ -43,7 +45,7 @@
 label {
     font-size: 0.7rem;
     font-weight: 700;
-    color: #86868b;
+    color: rgb(5 5 5 / 0.84);
     margin-bottom: 6px;
     margin-left: 4px;
     text-transform: uppercase;
@@ -69,16 +71,17 @@ input:focus {
 
 
 .btn-primary {
-    background: linear-gradient(to right, rgba(31, 196, 67, 1) 20%, rgba(31, 196, 67, 0.5) 100%);
+    background: linear-gradient(to right, rgb(0 172 40) 20%, rgba(31, 196, 67, 1) 100%);
     border: 1px solid #00C42E;
     box-shadow: 0 3px 10px 0 rgba(31, 196, 67, 0.5);
     transition: all 0.3s ease;
+    font-weight: 700;
 
 
 }
 
 .btn-primary:hover {
-    background: linear-gradient(to right, rgba(31, 196, 67, 1) 20%, rgba(31, 196, 67, 0.5) 100%);
+    background: linear-gradient(to right, rgb(0 172 40) 20%, rgba(31, 196, 67, 1) 100%);
     border: 1px solid #00C42E;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.8);
     scale: 1.03;
@@ -810,17 +813,17 @@ input:focus {
 }
 
 
-.item-name {
+.item-model {
     font-weight: 700;
     font-size: 0.95rem;
     margin-bottom: 2px;
-    color: #1c1c1e;
+    color: #0468FF;
 }
 
-.item-sub {
+.item-name {
     font-size: 0.75rem;
-    font-weight: 500;
-    color: #8e8e93;
+    font-weight: 700;
+    color: #000000;
     display: block;
     margin-bottom: 0;
     margin-top: 5px;
@@ -888,7 +891,7 @@ input:focus {
 
 .item-img-box {
     background: #fbfbfd;
-    height: 100px;
+    height: 80px;
     border-radius: 14px;
     display: flex;
     align-items: center;
@@ -897,8 +900,8 @@ input:focus {
 }
 
 .item-img-box img {
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 100%;
+    max-height: 100%;
     transition: transform 0.4s ease;
 }
 
@@ -910,10 +913,10 @@ input:focus {
 .item-info-wrap { margin-bottom: 8px; }
 .info-row { display: flex; justify-content: space-between; align-items: center; }
 
-.item-main-name { font-size: 0.8rem; font-weight: 700; color: #1d1d1f; margin-bottom: 2px; }
+.item-main-name { font-size: 0.9rem; font-weight: 700; color: #0468FF; margin-bottom: 2px; }
 .item-main-price { font-size: 0.8rem; font-weight: 700; color: #34c759; margin-bottom: 2px; }
 .item-sub-tag { font-size: 0.7rem; color: #86868b; font-weight: 600; }
-.item-stock-count { font-size: 0.7rem; color: #0468FF; font-weight: 600; }
+.item-stock-count { font-size: 0.7rem; color: #000000; font-weight: 600; }
 
 
 .item-add-btn {
@@ -921,8 +924,8 @@ input:focus {
     background: transparent;
     border: 1.2px solid #1aab29;
     border-radius: 10px;
-    padding: 8px 6px;
-    font-size: 0.65rem;
+    padding: 6px 6px;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #1aab29;
     transition: all 0.3s ease;
@@ -960,7 +963,7 @@ input:focus {
 }
 
 .info-side { flex: 1.2; }
-.image-side { flex: 0.8; display: flex; justify-content: center; margin-bottom: 100px; }
+.image-side { flex: 0.8; display: flex; justify-content: center; margin-bottom: 50px; }
 
 
 .detail-group {
