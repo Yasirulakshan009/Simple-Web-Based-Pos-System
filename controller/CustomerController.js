@@ -1,93 +1,196 @@
-import {addCustomerData,getCustomerData} from '../model/CustomerModel.js';
+import { addCustomerData, getCustomerData, updateCustomerData, deleteCustomerData, searchCustomer } from '../model/CustomerModel.js';
 
-
-const $addCustomer = $('#add-customer');
-const $modalTitle = $('#customer-title');
-const $customerBtnSave = $('#customer-btn-save');
-const $customerForm = $('#customerForm');
-
-$('#btn-new-customer').on('click' , function (){
-    $modalTitle.text ( "Add New Customer");
-    $customerBtnSave.text ("Save Customer");
-    $customerForm[0].reset();
-    $addCustomer.show();
-});
-
-$('#customer-table').on('click' , '.btn-edit-action',function (){
-        $customerForm[0].reset();
-        $modalTitle.text(  "Edit Customer");
-        $customerBtnSave.text(  "Update Customer");
-        $addCustomer.show();
-});
-
-$('#customer-table').on('click','.btn-delete-action',function (){
-    if (confirm("Are you sure you want to delete this customer?")) {
-       $(this).closest('tr').remove();
-    }
-});
-
-
-
-$('#close-modal').on('click' , function () {
-    $addCustomer.hide();
-});
-
-// load table////////////////////////
-
-const loadStudentTbl = () => {
-
-    $('#customer_tbody').empty();
-
-    let customer_db = getCustomerData();
-
-    customer_db.map((item, index) => {
-
-        let new_row = `<tr data-index="${index}"> 
-                              <td>${item.id}</td> 
-                              <td>${item.name}</td> 
-                              <td>${item.address}</td> 
-                              <td>${item.contact}</td>
-                              <td>
-                                    <button class="btn-edit-action edit btn btn-sm "><i class="bi bi-pencil-square"></i></button>
-                                    <button class="btn-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
-                              </td>
-                              </tr>`;
-
-        $('#customer_tbody').append(new_row);
-
-    });
-
+function playAppleSound() {
+    let audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+    audio.volume = 0.1;
+    audio.play().catch(error => console.log("Sound play error: ", error));
 }
 
-// add customer/////////////////////
+const addCustomerModal = $('#add-customer');
+const modalTitle = $('#customer-title');
+const saveUpdateButton = $('#customer-btn-save');
+const customerForm = $('#customerForm');
 
-$customerBtnSave.on('click',function () {
-    const id = $('#customer_id_input').val();
-    const name = $('#customer_name_input').val();
-    const address = $('#customer_address_input').val();
-    const contact = $('#customer_contact_input').val();
+function loadCustomerTable(data) {
+    $('#customer_tbody').empty();
 
-    if(id && name && address && contact){
-        addCustomerData(id,name,address,contact);
+    let customerList;
+    if (data == undefined) {
+        customerList = getCustomerData();
+    } else {
+        customerList = data;
+    }
+
+    customerList.forEach(function (item) {
+        let row = `<tr>
+            <td>${item.id}</td>
+            <td>${item.name}</td>
+            <td>${item.address}</td>
+            <td>${item.contact}</td>
+            <td>
+                <button class="btn-edit-action edit btn btn-sm "><i class="bi bi-pencil-square"></i></button>
+                <button class="btn-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
+            </td>
+        </tr>`;
+        $('#customer_tbody').append(row);
+    });
+}
+
+// add btn click//////////////////
+$('#btn-new-customer').on('click', function () {
+    modalTitle.text("Add New Customer");
+    saveUpdateButton.text("Save Customer");
+
+    customerForm[0].reset();
+    addCustomerModal.show();
+});
+
+
+// fill data update form
+$('#customer-table').on('click', '.btn-edit-action', function () {
+    let row = $(this).closest('tr');
+    let id = row.find('td:eq(0)').text();
+    let name = row.find('td:eq(1)').text();
+    let address = row.find('td:eq(2)').text();
+    let contact = row.find('td:eq(3)').text();
+
+    $('#customer_id_input').val(id);
+    $('#customer_name_input').val(name);
+    $('#customer_address_input').val(address);
+    $('#customer_contact_input').val(contact);
+
+    modalTitle.text("Edit Customer");
+    saveUpdateButton.text("Update Customer");
+
+    $('#customer_id_input').attr('readonly', true);
+    addCustomerModal.show();
+});
+
+
+// click save or update btn
+saveUpdateButton.on('click', function () {
+    let id = $('#customer_id_input').val();
+    let name = $('#customer_name_input').val();
+    let address = $('#customer_address_input').val();
+    let contact = $('#customer_contact_input').val();
+
+    if (id != "" && name != "" && address != "" && contact != "") {
+
+        if (saveUpdateButton.text() == "Save Customer") {
+            addCustomerData(id, name, address, contact);
+
+            playAppleSound();
+
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                background: 'linear-gradient(to bottom, #0468FF , #007aff)',
+                title: 'Customer Saved!',
+                iconColor: '#ffffff',
+                color: '#ffffff',
+                showConfirmButton: false,
+                timer: 2000
+            });
+        } else {
+            updateCustomerData(id, name, address, contact);
+
+            playAppleSound();
+
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                iconColor: '#34c759',
+                title: 'Customer Updated!',
+                showConfirmButton: false,
+                timer: 2000,
+                customClass: {
+                    popup: 'apple-toast'
+                }
+
+            });
+        }
+
+        addCustomerModal.hide();
+        loadCustomerTable();
+
+    } else {
+
+        playAppleSound();
 
         Swal.fire({
-            title: "Success!",
-            text: "Customer saved successfully!",
-            icon: "success",
-            timer: 1000,
+            toast: true,
+            position: 'top-end',
+            icon: 'success',
+            title: 'Please fill all the details',
+            iconColor: '#34c759',
             showConfirmButton: false,
-            background: '#ffffff',
-            color: '#000000'
-        });
+            timer: 2000,
+            customClass: {
+                popup: 'apple-toast'
+            }
 
-        $customerForm[0].reset();
-        loadStudentTbl();
-    }else {
-        Swal.fire({
-            title: "Error!",
-            text: "Please fill all fields!",
-            icon: "error",
-            confirmButtonColor: '#ff0061'
         });
     }
 });
+
+
+// enter delete btn
+$('#customer-table').on('click', '.btn-delete-action', function () {
+    let id = $(this).closest('tr').find('td:eq(0)').text();
+
+    Swal.fire({
+        text: "Are you sure delete id " + id + "?",
+        icon: 'warning',
+        iconColor: '#ff3b30',
+        toast: true,
+        position: 'top-end',
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        cancelButtonText: 'Cancel',
+        confirmButtonColor: '#ff3b30',
+        cancelButtonColor: '#007aff',
+        reverseButtons: true,
+        customClass: {
+            popup: 'apple-toast'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            deleteCustomerData(id);
+            loadCustomerTable();
+
+            playAppleSound();
+
+            Swal.fire({
+                toast: true,
+                position: 'top-end',
+                icon: 'success',
+                iconColor: '#34c759',
+                title: 'Deleted!',
+                text: 'Customer has been removed.',
+                showConfirmButton: false,
+                timer: 1500,
+                customClass: {
+                    popup: 'apple-toast'
+                }
+            });
+        }
+    });
+});
+
+
+//search input
+$('#search_input').on('input', function () {
+    let text = $(this).val();
+    let filteredList = searchCustomer(text);
+    loadCustomerTable(filteredList);
+});
+
+//close form
+$('#close-modal').on('click', function () {
+    addCustomerModal.hide();
+});
+
+
+loadCustomerTable();

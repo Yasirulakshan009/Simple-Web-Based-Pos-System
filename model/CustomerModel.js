@@ -50,12 +50,42 @@ class Customer {
 
 const addCustomerData = (cid ,cname ,caddress ,ccontact) => {
     let new_customer = new Customer(cid,cname,caddress,ccontact);
-    customer_db.push(new_customer);
+    customer_db.unshift(new_customer);
 }
 
 const getCustomerData = () => {
     return customer_db;
 }
 
+const updateCustomerData = (cid, cname, caddress, ccontact) => {
+    let obj = customer_db.find(item => item.id == cid);
 
-export {addCustomerData , getCustomerData};
+    if(obj) {
+        obj.name=cname;
+        obj.address=caddress;
+        obj.contact=ccontact
+    }
+}
+
+const deleteCustomerData = (cid) => {
+    let index = customer_db.findIndex(item => item.id == cid); // -1
+
+    if(index!==-1) {
+        customer_db.splice(index, 1);
+    }
+}
+
+const searchCustomer = (searchTerm) => {
+    let lowerTerm = searchTerm.toLowerCase();
+
+    return customer_db.filter(item => {
+        let id = String(item.id).toLowerCase();
+        let name = String(item.name).toLowerCase();
+
+        return id.includes(lowerTerm) || name.includes(lowerTerm);
+    });
+}
+
+
+
+export {addCustomerData , getCustomerData , updateCustomerData , deleteCustomerData , searchCustomer};
