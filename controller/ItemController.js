@@ -1,30 +1,70 @@
-const addItem = document.getElementById('add-item');
-const itemTitle = document.getElementById('item-title');
-const itemSave = document.getElementById('item-btn-save');
+import{addItemData,getItemData} from "../model/ItemModel";
 
-document.getElementById('btn-new-item').onclick = function() {
-    itemTitle.innerText = "Add New Item";
-    itemSave.innerText = "Save Item";
-    document.getElementById('itemForm').reset();
-    addItem.style.display = 'block';
-};
+const itemForm = $('#itemForm');
+const itemTitle = $('#item-title');
+const saveUpdateBtn =  $('#item-btn-save');
+const addItem = $('#add-item');
 
-document.querySelector('#item-table').addEventListener('click', function(e) {
+$('#btn-new-item').on('click', function () {
+    itemTitle.text("Add New Item");
+    saveUpdateBtn.text("Save Item");
 
-    if (e.target.closest('.item-edit-action')) {
-        document.getElementById('itemForm').reset();
-        itemTitle.innerText = "Edit Item";
-        itemSave.innerText = "Update Item";
-        addItem.style.display = 'block';
-    }
+    itemForm[0].reset();
+    addItem.show();
 
-    if (e.target.closest('.item-delete-action')) {
-        if (confirm("Are you sure you want to delete this item?")) {
-            e.target.closest('tr').remove();
-        }
-    }
 });
 
-document.getElementById('item-close-modal').onclick = function() {
-    addItem.style.display = 'none';
-};
+
+saveUpdateBtn.on('click', function () {
+    $('#item-id').val();
+    $('#item-name').val();
+    $('#item-')
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const imageBox = document.querySelector('.image-box');
+    const fileInput = document.getElementById('fileInput');
+    const previewImage = document.getElementById('preview');
+
+    if (imageBox && fileInput) {
+        imageBox.addEventListener('click', function () {
+            fileInput.click();
+        });
+    }
+
+    if (fileInput) {
+        fileInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+
+                reader.addEventListener('load', function () {
+                    previewImage.setAttribute('src', this.result);
+                    previewImage.style.display = 'block';
+                });
+
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+});

@@ -86,6 +86,9 @@ const searchCustomer = (searchTerm) => {
     });
 }
 
+const getCustomerDataById = (id) => {
+    return customer_db.find(item => item.id==id);
+}
 
 
-export {addCustomerData , getCustomerData , updateCustomerData , deleteCustomerData , searchCustomer};
+export {addCustomerData , getCustomerData , updateCustomerData , deleteCustomerData , searchCustomer , getCustomerDataById};

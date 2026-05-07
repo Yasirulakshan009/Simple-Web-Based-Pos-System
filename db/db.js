@@ -3,4 +3,6 @@ const customer_db = [
     {id: "2", name: "Lakshan", address: "Colombo", contact: "0719876543"}
 ];
 
-export {customer_db};
+const item_db = [];
+
+export {customer_db,item_db};

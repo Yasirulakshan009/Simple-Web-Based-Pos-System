@@ -11,7 +11,15 @@ if (loginBtn) {
         }
         if (username === "y" && password === "1") {
             alert("Login Successful!");
-            window.location.href = "index.html";
+            const loginSec = document.getElementById('login-section');
+            const dashSec = document.getElementById('dashboard-section');
+
+            if (loginSec && dashSec) {
+                loginSec.style.display = 'none';
+                dashSec.style.display = 'flex';
+
+
+            }
 
         } else {
             alert("Invalid Username and Password. Try Again !");
@@ -25,5 +33,18 @@ const passwordInput = document.getElementById('exampleInputPassword1');
 if (checkbox && passwordInput) {
     checkbox.addEventListener('change', function() {
         passwordInput.type = this.checked ? 'text' : 'password';
+    });
+}
+
+
+const logoutBtn = document.querySelector('.logout-link');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('login-section').style.display = 'flex';
+        document.getElementById('dashboard-section').style.display = 'none';
+
+        document.getElementById('exampleInputUsername').value = "";
+        document.getElementById('exampleInputPassword1').value = "";
     });
 }

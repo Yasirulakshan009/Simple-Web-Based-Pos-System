@@ -1,10 +1,5 @@
-import { addCustomerData, getCustomerData, updateCustomerData, deleteCustomerData, searchCustomer } from '../model/CustomerModel.js';
-
-function playAppleSound() {
-    let audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
-    audio.volume = 0.1;
-    audio.play().catch(error => console.log("Sound play error: ", error));
-}
+import { addCustomerData, getCustomerData, updateCustomerData, deleteCustomerData, searchCustomer, getCustomerDataById } from '../model/CustomerModel.js';
+import {check_phone} from '../utills/rege_utills.js';
 
 const addCustomerModal = $('#add-customer');
 const modalTitle = $('#customer-title');
@@ -73,43 +68,93 @@ saveUpdateButton.on('click', function () {
     let name = $('#customer_name_input').val();
     let address = $('#customer_address_input').val();
     let contact = $('#customer_contact_input').val();
+    $('#customer_id_input').attr('readonly', false);
+
 
     if (id != "" && name != "" && address != "" && contact != "") {
 
         if (saveUpdateButton.text() == "Save Customer") {
-            addCustomerData(id, name, address, contact);
 
-            playAppleSound();
+            if (getCustomerDataById(id)) {
 
-            Swal.fire({
-                toast: true,
-                position: 'top-end',
-                icon: 'success',
-                background: 'linear-gradient(to bottom, #0468FF , #007aff)',
-                title: 'Customer Saved!',
-                iconColor: '#ffffff',
-                color: '#ffffff',
-                showConfirmButton: false,
-                timer: 2000
-            });
+                playAppleSound();
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'warning',
+                    iconColor: '#ff3b30',
+                    text: 'ID already exists !',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    customClass: {
+                        popup: 'apple-toast'
+                    }
+                });
+            } else if (!check_phone(contact)) {
+
+                playAppleSound();
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'warning',
+                    iconColor: '#ff3b30',
+                    text: 'Invalid Phone Number !',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    customClass: {
+                        popup: 'apple-toast'
+                    }
+                });
+            } else {
+                addCustomerData(id, name, address, contact);
+
+                playAppleSound();
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Customer Saved!',
+                    iconColor: '#34c759',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+            }
+
         } else {
-            updateCustomerData(id, name, address, contact);
 
-            playAppleSound();
+            if (!check_phone(contact)) {
 
-            Swal.fire({
-                toast: true,
-                position: 'top-end',
-                icon: 'success',
-                iconColor: '#34c759',
-                title: 'Customer Updated!',
-                showConfirmButton: false,
-                timer: 2000,
-                customClass: {
-                    popup: 'apple-toast'
-                }
+                playAppleSound();
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'warning',
+                    iconColor: '#ff3b30',
+                    text: 'Invalid Phone Number !',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    customClass: {
+                        popup: 'apple-toast'
+                    }
+                });
+            } else {
+                updateCustomerData(id, name, address, contact);
 
-            });
+                playAppleSound();
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    iconColor: '#34c759',
+                    title: 'Customer Updated!',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    customClass: {
+                        popup: 'apple-toast'
+                    }
+
+                });
+            }
         }
 
         addCustomerModal.hide();
@@ -122,11 +167,11 @@ saveUpdateButton.on('click', function () {
         Swal.fire({
             toast: true,
             position: 'top-end',
-            icon: 'success',
+            icon: 'warning',
             title: 'Please fill all the details',
-            iconColor: '#34c759',
+            iconColor: '#ff3b30',
             showConfirmButton: false,
-            timer: 2000,
+            timer: 3000,
             customClass: {
                 popup: 'apple-toast'
             }
@@ -170,7 +215,7 @@ $('#customer-table').on('click', '.btn-delete-action', function () {
                 title: 'Deleted!',
                 text: 'Customer has been removed.',
                 showConfirmButton: false,
-                timer: 1500,
+                timer: 3000,
                 customClass: {
                     popup: 'apple-toast'
                 }
@@ -194,3 +239,9 @@ $('#close-modal').on('click', function () {
 
 
 loadCustomerTable();
+
+function playAppleSound() {
+    let audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+    audio.volume = 0.2;
+    audio.play().catch(error => console.log("Sound play error: ", error));
+}

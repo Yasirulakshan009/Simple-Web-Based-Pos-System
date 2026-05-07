@@ -10,13 +10,43 @@
 </head>
 <body>
 
-<section class="dashboard">
+<section id="login-section" class="login">
+
+    <div class="circles-area">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+        <div class="circle circle-4"></div>
+    </div>
+
+    <div class="login-card">
+
+        <form>
+            <h1 class="login-title"><b>WELCOME !</b></h1>
+            <div class="mb-3">
+                <label for="exampleInputUsername" class="form-label">Username</label>
+                <input type="text" class="form-control" id="exampleInputUsername">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Show Password</label>
+            </div>
+            <button type="button" id="loginBtn" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+</section>
+
+<section id="dashboard-section" class="dashboard" style="display: none;">
     <aside class="sidebar">
         <div class="sidebar-header">
             <h3 class="logo-text">COMPUTER SHOP</h3>
             <div class="line"></div>
         </div>
-
 
         <nav class="nav flex-column sidebar-nav">
             <p class="nav-label">Main</p>
@@ -35,7 +65,7 @@
     <main class="main-content">
         <nav class="navbar bg-body-tertiary sticky-top">
             <div class="container-fluid">
-                <form class="d-flex" role="search">
+                <form class="d-flex" role="search" onsubmit="return false;">
                     <input class="form-control me-0" id="search_input" type="search" placeholder="Search..." aria-label="Search"/>
                 </form>
             </div>
@@ -306,31 +336,35 @@
                             <form id="itemForm">
                                 <div class="form-grid">
                                     <div class="mb-3 col-span-2">
+                                        <label class="apple-label">ID</label>
+                                        <input type="number" class="form-control apple-input" id="item-id" placeholder="ID">
+                                    </div>
+                                    <div class="mb-3 col-span-2">
                                         <label class="apple-label">Item Name</label>
-                                        <input type="text" class="form-control apple-input" placeholder="Item Name">
+                                        <input type="text" class="form-control apple-input" id="item-name" placeholder="Item Name">
                                     </div>
                                     <div class="mb-3">
                                         <label class="apple-label">Brand</label>
-                                        <input type="text" class="form-control apple-input" placeholder="Brand">
+                                        <input type="text" class="form-control apple-input" id="item-brand" placeholder="Brand">
                                     </div>
                                     <div class="mb-3">
                                         <label class="apple-label">Model</label>
-                                        <input type="tel" class="form-control apple-input" placeholder="Model">
+                                        <input type="tel" class="form-control apple-input" id="item-model" placeholder="Model">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="apple-label">Quantity</label>
-                                        <input type="number" class="form-control apple-input" placeholder="0">
+                                        <input type="number" class="form-control apple-input" id="item-qty" placeholder="0">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="apple-label">Buying Price</label>
-                                        <input type="text" class="form-control apple-input" placeholder="0.00">
+                                        <input type="text" class="form-control apple-input" id="item-buying-price" placeholder="0.00">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="apple-label">Selling Price</label>
-                                        <input type="text" class="form-control apple-input" placeholder="0.00">
+                                        <input type="text" class="form-control apple-input" id="item-selling-price" placeholder="0.00">
                                     </div>
 
                                 </div>
@@ -769,5 +803,6 @@
 <script type="module" src="../controller/CustomerController.js"></script>
 <script type="module" src="../controller/ItemController.js"></script>
 <script type="module" src="../controller/OrderController.js"></script>
+<script type="module" src="../controller/LoginController.js"></script>
 </body>
 </html>
