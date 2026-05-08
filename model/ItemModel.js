@@ -86,5 +86,18 @@ const getItemData = () => {
     return item_db;
 }
 
+const updateItemData = (id ,itemName ,brand ,model,quantity,buyingPrice,sellingPrice) => {
+    let obj = item_db.find(item => item.id == id);
 
-export {addItemData,getItemData};
+    if(obj) {
+        obj.iteName=itemName;
+        obj.brand=brand;
+        obj.model=model;
+        obj.quantity=quantity;
+        obj.buyingPrice=buyingPrice;
+        obj.sellingPrice=sellingPrice;
+
+    }
+}
+
+export {addItemData,getItemData,updateItemData};
