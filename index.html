@@ -370,141 +370,23 @@
         <section id="order-view" >
             <div class="container mt-4">
 
-                <div class="items-cards-section">
+                <div class="items-cards-section" id="item-grid">
 
                     <div class="apple-item-card">
                         <div class="item-img-box">
-                            <img src="assest/pictures/macbook.png" alt="Product">
+                            <img src="" id="order-item-img" alt="Product">
                         </div>
                         <div class="item-info-wrap">
                             <div class="info-row">
-                                <span class="item-main-name">Air M4</span>
-                                <span class="item-main-price">450k</span>
+                                <span class="item-main-name" id="order-item-model"></span>
+                                <span class="item-main-price" id="order-item-price"></span>
                             </div>
                             <div class="info-row">
-                                <span class="item-sub-tag">MacBook</span>
-                                <span class="item-stock-count">12 In Stock</span>
+                                <span class="item-sub-tag" id="order-item-name"></span>
+                                <span class="item-stock-count" id="order-item-qty"></span>
                             </div>
                         </div>
-                        <button class="item-add-btn">Add to Cart</button>
-                    </div>
-
-                    <div class="apple-item-card">
-                        <div class="item-img-box">
-                            <img src="assest/pictures/macbook.png" alt="Product">
-                        </div>
-                        <div class="item-info-wrap">
-                            <div class="info-row">
-                                <span class="item-main-name">Air M4</span>
-                                <span class="item-main-price">450k</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="item-sub-tag">MacBook</span>
-                                <span class="item-stock-count">12 In Stock</span>
-                            </div>
-                        </div>
-                        <button class="item-add-btn">Add to Cart</button>
-                    </div>
-
-                    <div class="apple-item-card">
-                        <div class="item-img-box">
-                            <img src="assest/pictures/macbook.png" alt="Product">
-                        </div>
-                        <div class="item-info-wrap">
-                            <div class="info-row">
-                                <span class="item-main-name">Air M4</span>
-                                <span class="item-main-price">450k</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="item-sub-tag">MacBook</span>
-                                <span class="item-stock-count">12 In Stock</span>
-                            </div>
-                        </div>
-                        <button class="item-add-btn">Add to Cart</button>
-                    </div>
-
-                    <div class="apple-item-card">
-                        <div class="item-img-box">
-                            <img src="assest/pictures/macbook.png" alt="Product">
-                        </div>
-                        <div class="item-info-wrap">
-                            <div class="info-row">
-                                <span class="item-main-name">Air M4</span>
-                                <span class="item-main-price">450k</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="item-sub-tag">MacBook</span>
-                                <span class="item-stock-count">12 In Stock</span>
-                            </div>
-                        </div>
-                        <button class="item-add-btn">Add to Cart</button>
-                    </div>
-
-                    <div class="apple-item-card">
-                        <div class="item-img-box">
-                            <img src="assest/pictures/macbook.png" alt="Product">
-                        </div>
-                        <div class="item-info-wrap">
-                            <div class="info-row">
-                                <span class="item-main-name">Air M4</span>
-                                <span class="item-main-price">450k</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="item-sub-tag">MacBook</span>
-                                <span class="item-stock-count">12 In Stock</span>
-                            </div>
-                        </div>
-                        <button class="item-add-btn">Add to Cart</button>
-                    </div>
-
-                    <div class="apple-item-card">
-                        <div class="item-img-box">
-                            <img src="assest/pictures/macbook.png" alt="Product">
-                        </div>
-                        <div class="item-info-wrap">
-                            <div class="info-row">
-                                <span class="item-main-name">Air M4</span>
-                                <span class="item-main-price">450k</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="item-sub-tag">MacBook</span>
-                                <span class="item-stock-count">12 In Stock</span>
-                            </div>
-                        </div>
-                        <button class="item-add-btn">Add to Cart</button>
-                    </div>
-
-                    <div class="apple-item-card">
-                        <div class="item-img-box">
-                            <img src="assest/pictures/macbook.png" alt="Product">
-                        </div>
-                        <div class="item-info-wrap">
-                            <div class="info-row">
-                                <span class="item-main-name">Air M4</span>
-                                <span class="item-main-price">450k</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="item-sub-tag">MacBook</span>
-                                <span class="item-stock-count">12 In Stock</span>
-                            </div>
-                        </div>
-                        <button class="item-add-btn">Add to Cart</button>
-                    </div>
-                    <div class="apple-item-card">
-                        <div class="item-img-box">
-                            <img src="../src/main/resources/4-8.jpg" alt="Product">
-                        </div>
-                        <div class="item-info-wrap">
-                            <div class="info-row">
-                                <span class="item-main-name">Air M4</span>
-                                <span class="item-main-price">450k</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="item-sub-tag">MacBook</span>
-                                <span class="item-stock-count">12 In Stock</span>
-                            </div>
-                        </div>
-                        <button class="item-add-btn">Add to Cart</button>
+                        <button class="item-add-btn" id="order-cart-btn"></button>
                     </div>
                 </div>
 
@@ -521,7 +403,7 @@
                     <div class="cart-items-scroll-area">
                         <div class="apple-cart-item">
                             <div class="item-img-box">
-                                <img src="../src/main/resources/4-8.jpg" alt="MacBook">
+                                <img src="" alt="MacBook">
                             </div>
                             <div class="item-details">
                                 <div class="d-flex justify-content-between align-items-start">

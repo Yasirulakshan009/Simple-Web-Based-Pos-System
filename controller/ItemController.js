@@ -1,4 +1,5 @@
 import {addItemData, getItemDataById, getItemData, updateItemData, deleteItemData, generateNextItemId, searchItem} from "../model/ItemModel.js";
+import { loadOrderPageItems } from "../controller/OrderController.js";
 
 const itemTitle = $('#item-title');
 const saveUpdateBtn =  $('#item-btn-save');
@@ -142,6 +143,8 @@ saveUpdateBtn.on('click', function () {
         clearForm();
         addItemModal.hide();
         loadItemTable();
+        loadOrderPageItems();
+
 
     }else{
 
@@ -187,6 +190,8 @@ $('#item-table').on('click', '.item-delete-action', function () {
         if (result.isConfirmed) {
             deleteItemData(id);
             loadItemTable();
+            loadOrderPageItems();
+
 
             playAppleSound();
 
@@ -257,6 +262,5 @@ $('#search_input').on('input', function () {
     let filteredList = searchItem(text);
     loadItemTable(filteredList);
 });
-
 
 loadItemTable();
