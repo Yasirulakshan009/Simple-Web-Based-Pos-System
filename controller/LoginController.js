@@ -10,7 +10,6 @@ if (loginBtn) {
             return;
         }
         if (username === "y" && password === "1") {
-            alert("Login Successful!");
             const loginSec = document.getElementById('login-section');
             const dashSec = document.getElementById('dashboard-section');
 

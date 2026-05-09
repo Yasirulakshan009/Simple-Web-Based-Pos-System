@@ -1,10 +1,9 @@
-import { addCustomerData, getCustomerData, updateCustomerData, deleteCustomerData, searchCustomer, getCustomerDataById } from '../model/CustomerModel.js';
+import { addCustomerData, getCustomerData, updateCustomerData, deleteCustomerData, searchCustomer, getCustomerDataById,generateNextCustomerId } from '../model/CustomerModel.js';
 import {check_phone} from '../utills/rege_utills.js';
 
 const addCustomerModal = $('#add-customer');
 const modalTitle = $('#customer-title');
 const saveUpdateButton = $('#customer-btn-save');
-const customerForm = $('#customerForm');
 
 function loadCustomerTable(data) {
     $('#customer_tbody').empty();
@@ -36,7 +35,10 @@ $('#btn-new-customer').on('click', function () {
     modalTitle.text("Add New Customer");
     saveUpdateButton.text("Save Customer");
 
-    customerForm[0].reset();
+    clearForm();
+    let nextId = generateNextCustomerId();
+    $('#customer_id_input').val(nextId);
+    $('#customer_id_input').prop('readonly', true);
     addCustomerModal.show();
 });
 
@@ -71,12 +73,11 @@ saveUpdateButton.on('click', function () {
     $('#customer_id_input').attr('readonly', false);
 
 
-    if (id != "" && name != "" && address != "" && contact != "") {
+    if (id && name && address  && contact ) {
 
         if (saveUpdateButton.text() == "Save Customer") {
 
             if (getCustomerDataById(id)) {
-
                 playAppleSound();
                 Swal.fire({
                     toast: true,
@@ -157,6 +158,7 @@ saveUpdateButton.on('click', function () {
             }
         }
 
+        clearForm();
         addCustomerModal.hide();
         loadCustomerTable();
 
@@ -237,6 +239,17 @@ $('#close-modal').on('click', function () {
     addCustomerModal.hide();
 });
 
+function clearForm() {
+    $('#customer_name_input').val("");
+    $('#customer_address_input').val("");
+    $('#customer_contact_input').val("");
+
+    $('#customer_id_input').prop('readonly', true);
+}
+
+$('#customer-clear').on('click', function () {
+    clearForm();
+});
 
 loadCustomerTable();
 

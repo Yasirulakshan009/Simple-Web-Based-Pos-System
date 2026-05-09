@@ -68,7 +68,7 @@ const updateCustomerData = (cid, cname, caddress, ccontact) => {
 }
 
 const deleteCustomerData = (cid) => {
-    let index = customer_db.findIndex(item => item.id == cid); // -1
+    let index = customer_db.findIndex(item => item.id == cid);
 
     if(index!==-1) {
         customer_db.splice(index, 1);
@@ -90,5 +90,15 @@ const getCustomerDataById = (id) => {
     return customer_db.find(item => item.id==id);
 }
 
+const generateNextCustomerId = () => {
+    if (customer_db.length === 0) return "C00-001";
+    let lastId = customer_db[0].id;
+    let parts = lastId.split("-");
+    let nextNumber = parseInt(parts[1]) + 1;
+    return "C00-" + nextNumber.toString().padStart(3, '0');
+};
 
-export {addCustomerData , getCustomerData , updateCustomerData , deleteCustomerData , searchCustomer , getCustomerDataById};
+
+
+
+export {addCustomerData , getCustomerData , updateCustomerData , deleteCustomerData , searchCustomer , getCustomerDataById , generateNextCustomerId};

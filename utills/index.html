@@ -16,7 +16,6 @@
         <div class="circle circle-1"></div>
         <div class="circle circle-2"></div>
         <div class="circle circle-3"></div>
-        <div class="circle circle-4"></div>
     </div>
 
     <div class="login-card">
@@ -44,7 +43,7 @@
 <section id="dashboard-section" class="dashboard" style="display: none;">
     <aside class="sidebar">
         <div class="sidebar-header">
-            <h3 class="logo-text">COMPUTER SHOP</h3>
+            <h3 class="logo-text"><i class="bi bi-apple me-2"></i>APPLE STORE</h3>
             <div class="line"></div>
         </div>
 
@@ -251,7 +250,7 @@
 
                             <div class="mt-4 d-flex gap-2 ">
                                 <button type="button" id="customer-btn-save" class="btn-apple-primary btn-primary w-60">Save Item</button>
-                                <button type="reset" id="customer-clear" class="btn-apple-secondary  w-50">Clear All</button>
+                                <button type="button" id="customer-clear" class="btn-apple-secondary  w-50">Clear All</button>
                             </div>
                         </form>
                     </div>
@@ -274,7 +273,7 @@
                         <table class="table table-borderless align-middle text-center" id="item-table">
                             <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>Item Code</th>
                                 <th>Item Name</th>
                                 <th>Brand</th>
                                 <th>Model</th>
@@ -284,25 +283,7 @@
                                 <th>Action</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>
-                                    <div class="d-flex align-items-center justify-content-start ps-3">
-                                        <img src="" class="table-img me-3" alt="item">
-                                        <span>Mouse</span>
-                                    </div>
-                                </td>
-                                <td>Logitech</td>
-                                <td>G510</td>
-                                <td>20</td>
-                                <td>8000.00</td>
-                                <td>10000.00</td>
-                                <td>
-                                    <button class="item-edit-action edit btn btn-sm "><i class="bi bi-pencil-square"></i></button>
-                                    <button class="item-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
+                            <tbody id="item_tbody">
                             </tbody>
                         </table>
                     </div>
@@ -337,7 +318,7 @@
                                 <div class="form-grid">
                                     <div class="mb-3 col-span-2">
                                         <label class="apple-label">ID</label>
-                                        <input type="number" class="form-control apple-input" id="item-id" placeholder="ID">
+                                        <input type="text" class="form-control apple-input" id="item-id" placeholder="ID">
                                     </div>
                                     <div class="mb-3 col-span-2">
                                         <label class="apple-label">Item Name</label>
@@ -359,19 +340,19 @@
 
                                     <div class="mb-3">
                                         <label class="apple-label">Buying Price</label>
-                                        <input type="text" class="form-control apple-input" id="item-buying-price" placeholder="0.00">
+                                        <input type="number" step="0.01" class="form-control apple-input" id="item-buying-price" placeholder="0.00">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="apple-label">Selling Price</label>
-                                        <input type="text" class="form-control apple-input" id="item-selling-price" placeholder="0.00">
+                                        <input type="number" step="0.01" class="form-control apple-input" id="item-selling-price" placeholder="0.00">
                                     </div>
 
                                 </div>
 
                                 <div class="mt-4 d-flex gap-2 ">
                                     <button type="button" id="item-btn-save" class="btn-apple-primary btn-primary w-60">Save Item</button>
-                                    <button type="reset" id="item-clear" class="btn-apple-secondary  w-50">Clear All</button>
+                                    <button type="button" id="item-clear" class="btn-apple-secondary  w-50">Clear All</button>
                                 </div>
                             </form>
                         </div>
@@ -779,7 +760,7 @@
                             <div class="image-side">
                                 <div class="detail-group">
                                     <span class="detail-label">Customer Name</span>
-                                    <p class="detail-val-sm price-blue" id="detail-customer-name">Yasiru Lakshan</p>
+                                    <p class="detail-val-sm " id="detail-customer-name">Yasiru Lakshan</p>
                                 </div>
 
                                 <div class="apple-glass-card">
