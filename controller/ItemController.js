@@ -36,7 +36,6 @@ $('#btn-new-item').on('click', function () {
     itemTitle.text("Add New Item");
     saveUpdateBtn.text("Save Item");
 
-
     clearForm();
     let nextId = generateNextItemId();
     $('#item-id').val(nextId);

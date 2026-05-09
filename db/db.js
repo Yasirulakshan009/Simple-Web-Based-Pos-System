@@ -1,6 +1,6 @@
 const customer_db = [
-    {id: "C00-001", name: "Yasiru", address: "Bandaragama", contact: "0771234567"},
-    {id: "C00-002", name: "Lakshan", address: "Colombo", contact: "0719876543"}
+    {id: "C00-002", name: "Lakshan", address: "Colombo", contact: "0719876543"},
+    {id: "C00-001", name: "Yasiru", address: "Bandaragama", contact: "0771234567"}
 ];
 
 const item_db = [

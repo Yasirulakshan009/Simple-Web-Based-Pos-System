@@ -70,7 +70,6 @@ saveUpdateButton.on('click', function () {
     let name = $('#customer_name_input').val();
     let address = $('#customer_address_input').val();
     let contact = $('#customer_contact_input').val();
-    $('#customer_id_input').attr('readonly', false);
 
 
     if (id && name && address  && contact ) {
