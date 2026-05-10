@@ -785,7 +785,7 @@ input:focus {
     color: #1c1c1e;
 }
 
-.apple-del-btn {
+.cart-del-btn {
     border: none;
     background: rgba(255, 59, 48, 0.1);
     color: #ff3b30;
@@ -798,12 +798,12 @@ input:focus {
     transition: all 0.2s ease;
 }
 
-.apple-del-btn:hover {
+.cart-del-btn:hover {
     background: #ff3b30;
     color: #ffffff;
 }
 
-.apple-del-btn:active {
+.cart-del-btn:active {
     transform: scale(0.9);
 }
 

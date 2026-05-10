@@ -5,6 +5,12 @@ import {cart_db} from "../db/DB.js";
 const itemGrid = $('#item-grid');
 const cardTemplate = $('.apple-item-card').first().clone();
 
+const slideScrollArea = $('.cart-items-scroll-area');
+const cartItemTemplate = $('.apple-cart-item').first().clone();
+
+slideScrollArea.empty();
+
+
 function loadOrderPageItems(itemsToLoad) {
 
     itemGrid.empty();
@@ -46,28 +52,55 @@ function loadOrderPageItems(itemsToLoad) {
         const isAdded = cart_db.some(c => c.id === item.id);
 
         if (isAdded) {
-            // Bootstrap Icon: bi-bag-check-fill (Apple feel ekata mara set)
             cartBtn.html(' Added <i class="bi bi-bag-check-fill"></i>')
                 .addClass('btn-added')
-                .css('pointer-events', 'none');
         } else {
-            // Bootstrap Icon: bi-bag-plus
             cartBtn.html(' Add to Cart <i class="bi bi-bag-plus"></i>')
                 .removeClass('btn-added')
-                .css('pointer-events', 'auto');
         }
 
         cartBtn.off('click').on('click', function() {
             $(this).html(' Added <i class="bi bi-bag-check-fill"></i>')
                 .addClass('btn-added')
-                .css('pointer-events', 'none');
 
             addToCart(item.id);
+
+            const newCartItem = cartItemTemplate.clone();
+
+            newCartItem.find('img').attr('src',item.image);
+            newCartItem.find('.item-model').text(item.model);
+            newCartItem.find('.item-name').text(item.itemName);
+            newCartItem.find('.item-price').text(item.sellingPrice);
+
+            const currentQtyInput = newCartItem.find('input');
+            currentQtyInput.val(1);
+
+            newCartItem.find('.cart-del-btn').on('click' , function (){
+                newCartItem.remove();
+
+                cartBtn.html(' Add to Cart <i class="bi bi-bag-plus"></i>')
+                    .removeClass('btn-added')
+            });
+
+            newCartItem.find('#plusBtn').on('click', function() {
+                let currentQty = parseInt(currentQtyInput.val());
+                currentQtyInput.val(currentQty + 1);
+            });
+
+            newCartItem.find('#minBtn').on('click', function() {
+                let currentQty = parseInt(currentQtyInput.val());
+                if (currentQty > 1) {
+                    currentQtyInput.val(currentQty - 1);
+                }
+            });
+
+            slideScrollArea.append(newCartItem);
         });
 
         itemGrid.append(newCard);
     });
 }
+
 
 $('#search_input').on('input', function () {
 
