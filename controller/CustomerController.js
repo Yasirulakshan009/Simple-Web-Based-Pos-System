@@ -15,6 +15,24 @@ function loadCustomerTable(data) {
         customerList = data;
     }
 
+    if(customerList.length === 0){
+        $('#customer_tbody').html(`
+            <tr>
+                <td colspan="5" style="
+                    text-align:center;
+                    color:#b0b0b0;
+                    font-size:25px;
+                    font-weight:600;
+                ">
+                    No Customer Found
+                </td>
+            </tr>
+        `);
+
+        return;
+    }
+
+
     customerList.forEach(function (item) {
         let row = `<tr>
             <td>${item.id}</td>

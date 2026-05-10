@@ -10,6 +10,23 @@ let currentImage = "";
 function loadItemTable(itemList = getItemData()) {
     $('#item_tbody').empty();
 
+    if(itemList.length === 0){
+        $('#item_tbody').html(`
+            <tr>
+                <td colspan="8" style="
+                    text-align:center;
+                    color:#b0b0b0;
+                    font-size:25px;
+                    font-weight:600;
+                ">
+                    No Items Found
+                </td>
+            </tr>
+        `);
+
+        return;
+    }
+
     itemList.forEach(item => {
         let row = `<tr>
             <td>${item.id}</td>
