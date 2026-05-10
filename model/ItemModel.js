@@ -1,4 +1,4 @@
-import {item_db} from "../db/db.js";
+import {item_db,cart_db} from "../db/DB.js";
 
 class Item {
     #id;
@@ -143,5 +143,14 @@ const searchItem = (searchTerm) => {
     });
 }
 
+const addToCart = (itemId) => {
+    let existing = cart_db.find(i => i.id === itemId);
 
-export {addItemData,getItemData,updateItemData,deleteItemData,getItemDataById,generateNextItemId,searchItem};
+    if (!existing) {
+        let item = getItemDataById(itemId);
+        cart_db.push(item);
+    }
+};
+
+
+export {addItemData,getItemData,updateItemData,deleteItemData,getItemDataById,generateNextItemId,searchItem,addToCart};

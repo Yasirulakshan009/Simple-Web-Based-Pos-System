@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 pointRadius: 5,
                 pointHoverRadius: 8,
                 fill: true,
-                borderColor: '#00C42E',
+                borderColor: '#007aff',
                 tension: 0.3,
 
                 backgroundColor: function(context) {
@@ -93,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
 
                     const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
-                    gradient.addColorStop(1, '#06EC38');
-                    gradient.addColorStop(0.5, '#6DE589');
+                    gradient.addColorStop(1, '#007aff');
+                    gradient.addColorStop(0.5, '#52a2ff');
                     gradient.addColorStop(0, '#FFFFFF');
 
                     return gradient;
@@ -114,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-
 
  });
 

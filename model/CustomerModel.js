@@ -1,4 +1,4 @@
-import {customer_db} from "../db/db.js";
+import {customer_db} from "../db/DB.js";
 
 class Customer {
     #id;

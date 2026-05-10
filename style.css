@@ -4,9 +4,6 @@
     box-sizing: border-box;
 }
 
-
-
-
 .login {
     position: relative;
     height: 100vh;
@@ -31,7 +28,8 @@
 .circle {
     position: absolute;
     border-radius: 50%;
-    background: radial-gradient(circle, #34e152 0%, #00C42E 100%);
+    /* Updated to Apple Blue Gradient */
+    background: radial-gradient(circle, #007aff 0%, #0468FF 100%);
     opacity: 0.35;
     filter: blur(70px);
     -webkit-filter: blur(70px);
@@ -44,11 +42,9 @@
     100% { transform: translate(-40px, 40px) scale(1); }
 }
 
-
 .circle-1 { width: 350px; height: 350px; top: -5%; left: -5%; animation-delay: 0s; }
 .circle-2 { width: 450px; height: 450px; bottom: -10%; right: -5%; animation-delay: -4s; }
 .circle-3 { width: 300px; height: 300px; top: 40%; left: 10%; animation-delay: -2s; }
-
 
 .login-card {
     min-height: 350px;
@@ -99,32 +95,27 @@ input {
     font-size: 0.95rem;
     transition: all 0.2s ease;
     width: 100%;
-
 }
 
 input:focus {
     background: #fff;
-    border-color: #00C42E !important;
-    box-shadow: 0 0 0 4px rgba(31, 196, 67, 0.15) !important;
+    border-color: #007aff !important;
+    box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.15) !important;
     outline: none;
-
 }
 
-
 .btn-primary {
-    background: linear-gradient(to right, rgb(0 172 40) 20%, rgba(31, 196, 67, 1) 100%);
-    border: 1px solid #00C42E;
-    box-shadow: 0 3px 10px 0 rgba(31, 196, 67, 0.5);
+    background: linear-gradient(to right, #007aff 20%, #0468FF 100%);
+    border: 1px solid #007aff;
+    box-shadow: 0 3px 10px 0 rgba(0, 122, 255, 0.5);
     transition: all 0.3s ease;
     font-weight: 700;
-
-
 }
 
 .btn-primary:hover {
-    background: linear-gradient(to right, rgb(0 172 40) 20%, rgba(31, 196, 67, 1) 100%);
-    border: 1px solid #00C42E;
-    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.8);
+    background: linear-gradient(to right, #007aff 20%, #0468FF 100%);
+    border: 1px solid #007aff;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.4);
     scale: 1.03;
 }
 
@@ -151,7 +142,6 @@ input:focus {
     width: 100%;
     background: #e0e0e0;
     margin-bottom: 20px;
-
 }
 
 .nav-label {
@@ -174,14 +164,13 @@ input:focus {
 
 .sidebar-nav .nav-link i {
     margin-right: 8px;
-
 }
 
 .sidebar-nav .nav-link.active {
-    background: linear-gradient(90deg, #1FC443 0%, rgba(31, 196, 67, 0.5) 100%);
+    background: linear-gradient(90deg, #007aff 0%, rgba(0, 122, 255, 0.5) 100%);
     color: #ffffff;
-    box-shadow: 0 3px 10px  rgba(31, 196, 67, 0.8);
-    border: 1px solid #00C42E;
+    box-shadow: 0 3px 10px rgba(0, 122, 255, 0.6);
+    border: 1px solid #007aff;
 }
 
 .sidebar-nav .nav-link:hover:not(.active) {
@@ -238,7 +227,6 @@ input:focus {
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease;
-
 }
 
 .custom-width {
@@ -250,7 +238,7 @@ input:focus {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: #06EC38;
+    background: #007aff;
     display: block;
     position: absolute;
     right: -50px;
@@ -258,8 +246,6 @@ input:focus {
     z-index: 10;
     filter: blur(20px);
     opacity: 0.5;
-
-
 }
 
 .stat-label {
@@ -271,7 +257,6 @@ input:focus {
 .stat-value {
     font-weight: 700;
     margin-bottom: 5px;
-
 }
 .stat-trend {
     font-size: 0.6rem;
@@ -285,16 +270,15 @@ input:focus {
     right:10px;
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #06EC38, #29E2A4);
+    background: linear-gradient(135deg, #007aff, #00C7FF);
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    box-shadow: 0 4px 8px rgba(31, 196, 67, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 122, 255, 0.2);
     z-index: 20;
     transition: transform 0.3s ease;
-
 }
 
 .stat-card:hover {
@@ -307,7 +291,6 @@ input:focus {
     transform: scale(1.15) rotate(6deg);
 }
 
-
 .mt-5 {
     width:50%;
     height: 250px;
@@ -317,7 +300,6 @@ input:focus {
     top:20px;
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-
 }
 
 .card-body {
@@ -340,7 +322,6 @@ input:focus {
     box-shadow: 0 0 10px rgba(0,0,0,0.08);
 }
 
-
 .table-header {
     display: flex;
     justify-content: space-between;
@@ -354,21 +335,17 @@ input:focus {
     padding: 6px 10px;
 }
 
-
 .recent-tbl-box thead th {
-    background-color: #e6f9ed;
+    background-color: #f0f7ff;
     font-weight: 700;
     font-size: 0.9rem;
     padding: 12px;
 }
 
-
 .recent-tbl-box tbody tr:hover td {
     background: #f6f6f6;
     cursor: pointer;
 }
-
-
 
 .recent-tbl-box tbody td {
     padding: 10px;
@@ -397,7 +374,6 @@ input:focus {
     font-size: 1.8rem;
     color: #000000;
     opacity: 0.5;
-
 }
 
 .customer-header .btn {
@@ -413,7 +389,7 @@ input:focus {
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    background: #06EC38;
+    background: #007aff;
     display: block;
     position: absolute;
     left: -60px;
@@ -477,10 +453,8 @@ input:focus {
     z-index: 101;
     width: 400px;
     height: auto;
-
-
-
 }
+
 .win-header {
     background: rgba(0, 0, 0, 0.03);
     padding:0 15px;
@@ -501,13 +475,11 @@ input:focus {
     display: flex;
     gap: 8px;
     padding: 10px 5px;
-
 }
 .dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-
 }
 .red {
     background: #ff5f56;
@@ -547,8 +519,8 @@ input:focus {
     background: #fff;
     border-color: #0468FF !important;
     box-shadow: 0 0 0 4px rgb(71, 136, 233, 0.2) !important;
-
 }
+
 .btn-apple-primary {
     color: white !important;
     border-radius: 10px !important;
@@ -571,7 +543,6 @@ input:focus {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0 20px;
-
 }
 
 .item-apple-window {
@@ -630,6 +601,7 @@ input:focus {
     border-color: #0468FF ;
     box-shadow: 0 0 0 4px rgb(71, 136, 233, 0.2) ;
 }
+
 .image-box img {
     width: 100%;
     height: 100%;
@@ -648,6 +620,7 @@ input:focus {
     opacity: 0;
     transition: 0.3s;
 }
+
 .image-box:hover .hover-overlay {
     opacity: 1;
 }
@@ -701,7 +674,6 @@ input:focus {
     opacity: 0.05;
 }
 
-
 .cart-details2 .mb-3 {
     display: flex;
     flex-direction: column;
@@ -711,13 +683,11 @@ input:focus {
     display: flex;
     justify-content: space-between;
     padding: 15px 20px 5px 15px;
-
 }
 
 .cart-details2 .p-4{
     padding: 5px 15px 5px 15px !important;
 }
-
 
 .payment-method {
     padding: 0 20px;
@@ -741,7 +711,6 @@ input:focus {
     transition: all 0.3s ease;
     outline: none;
 }
-
 
 .button-container {
     padding: 10px 20px ;
@@ -770,17 +739,6 @@ input:focus {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     align-items: center;
 }
-
-.item-img-box {
-    height: 100px;
-    width: 100px;
-}
-
-.item-img-box {
-    width: 100%;
-    height: 100%;
-}
-
 
 .apple-mini-qty {
     display: flex;
@@ -817,7 +775,6 @@ input:focus {
     color: #007aff;
 }
 
-
 .apple-mini-qty input {
     width: 30px;
     border: none;
@@ -827,7 +784,6 @@ input:focus {
     font-weight: 700;
     color: #1c1c1e;
 }
-
 
 .apple-del-btn {
     border: none;
@@ -850,7 +806,6 @@ input:focus {
 .apple-del-btn:active {
     transform: scale(0.9);
 }
-
 
 .item-model {
     font-weight: 700;
@@ -875,25 +830,23 @@ input:focus {
     margin-left: 40px;
 }
 
-
 .items-cards-section {
     background: #ffffff;
     height: 80vh;
-    width: 45vw;
-    margin-left: -10px;
+    width: 47vw;
+    margin-left: -30px;
     margin-top: 10px;
     padding: 15px;
     border-radius: 24px;
     border: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
     overflow-y: auto;
     overflow-x: hidden;
     justify-content: flex-start;
     align-content: flex-start;
 }
-
 
 .items-cards-section::-webkit-scrollbar {
     width: 5px;
@@ -903,10 +856,9 @@ input:focus {
     border-radius: 10px;
 }
 
-
 .apple-item-card {
     background: #ffffff;
-    width: 170px;
+    width: 180px;
     min-height: 220px;
     height: auto;
     border-radius: 20px;
@@ -926,8 +878,6 @@ input:focus {
     border-color: rgba(0, 122, 255, 0.2);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
-
-
 
 .item-img-box {
     background: #fbfbfd;
@@ -954,45 +904,59 @@ input:focus {
     transform: scale(1.1);
 }
 
-
 .item-info-wrap { margin-bottom: 8px; }
 .info-row { display: flex; justify-content: space-between; align-items: center; }
 
 .item-main-name { font-size: 0.9rem; font-weight: 700; color: #0468FF; margin-bottom: 2px; }
-.item-main-price { font-size: 0.8rem; font-weight: 700; color: #34c759; margin-bottom: 2px; }
-.item-sub-tag { font-size: 0.7rem; color: #86868b; font-weight: 600; }
-.item-stock-count { font-size: 0.7rem; color: #000000; font-weight: 600; }
 
+
+.item-main-price { font-size: 0.8rem; font-weight: 700; color: #34c759; margin-bottom: 2px; }
+
+.item-sub-tag { font-size: 0.7rem; color: #86868b; font-weight: 600; }
+
+
+.item-stock-count { font-size: 0.7rem; color: #000000; font-weight: 600; }
 
 .item-add-btn {
     width: 100%;
-    background: transparent;
-    border: 1.2px solid #1aab29;
-    border-radius: 10px;
-    padding: 6px 6px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 6px 12px;
+    gap: 5px;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #1aab29;
-    transition: all 0.3s ease;
+    color: #1d1d1f;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
 }
 
 .item-add-btn:hover {
-    background: linear-gradient(90deg, #1FC443 0%, rgba(31, 196, 67, 0.5) 100%);
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.9), rgba(0, 199, 255, 0.7));
     color: #ffffff;
+    border-color: rgba(0, 122, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-added {
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.9), rgba(0, 199, 255, 0.7));
+    color: #ffffff;
+    border-color: rgba(0, 122, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
 }
 
 .view {
     background: linear-gradient(to bottom, #0468FF , #007aff);
     color: white;
+    margin-right: 2px;
 }
 
 .view:hover{
     color: white;
     box-shadow: 0 0 5px black;
-}
-
-.view{
-    margin-right: 2px;
 }
 
 .history-window {
@@ -1009,7 +973,6 @@ input:focus {
 
 .info-side { flex: 1.2; }
 .image-side { flex: 0.8; display: flex; justify-content: center; margin-bottom: 50px; }
-
 
 .detail-group {
     margin-bottom: 15px;
@@ -1038,7 +1001,6 @@ input:focus {
 .bottom-details { display: flex; gap: 40px; }
 .detail-val-sm { font-size: 1.1rem; font-weight: 600; color: #424245; }
 
-
 .apple-glass-card {
     background: rgba(255, 255, 255, 0.4);
     border-radius: 22px;
@@ -1061,5 +1023,24 @@ input:focus {
     box-shadow: 0 2px 10px 0 rgb(16 ,31, 198, 0.2) !important;
 }
 
+#btn-place-order {
+    width: 50%;
+    /* Updated to Blue Gradient */
+    background: linear-gradient(to right, #007aff 20%, #0468FF 100%);
+    border: 1px solid #007aff;
+    box-shadow: 0 3px 10px 0 rgba(0, 122, 255, 0.5);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    color: white;
+}
 
-
+#btn-place-order:hover {
+    background: linear-gradient(to right, #007aff 20%, #0468FF 100%);
+    border: 1px solid #007aff;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+    transform: translateY(-1px);
+}

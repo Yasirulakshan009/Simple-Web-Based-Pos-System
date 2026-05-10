@@ -8,7 +8,7 @@ const item_db = [
         id: "I00-010",
         itemName: "MacBook Pro",
         brand: "Apple",
-        model: "M3 Max - 14-inch",
+        model: "M3 Max",
         quantity: 5,
         buyingPrice: "850000.00",
         sellingPrice: "925000.00",
@@ -18,7 +18,7 @@ const item_db = [
         id: "I00-009",
         itemName: "iPhone",
         brand: "Apple",
-        model: " 15 Pro - 256GB",
+        model: " 15 Pro",
         quantity: 12,
         buyingPrice: "380000.00",
         sellingPrice: "425000.00",
@@ -28,7 +28,7 @@ const item_db = [
         id: "I00-008",
         itemName: "iPad Pro",
         brand: "Apple",
-        model: "12.9-inch M2",
+        model: "M2",
         quantity: 8,
         buyingPrice: "320000.00",
         sellingPrice: "365000.00",
@@ -76,9 +76,9 @@ const item_db = [
     },
     {
         id: "I00-003",
-        itemName: "Apple TV 4K",
+        itemName: "Apple TV ",
         brand: "Apple",
-        model: "64GB Storage",
+        model: "4K 64GB",
         quantity: 10,
         buyingPrice: "55000.00",
         sellingPrice: "68000.00",
@@ -106,5 +106,7 @@ const item_db = [
     }
 ];
 
+const  cart_db = [];
 
-export {customer_db,item_db};
+
+export {customer_db,item_db,cart_db};

@@ -1,4 +1,6 @@
-import { getItemData, searchItem } from "../model/ItemModel.js";
+import { getItemData, searchItem,addToCart } from "../model/ItemModel.js";
+import {cart_db} from "../db/DB.js";
+
 
 const itemGrid = $('#item-grid');
 const cardTemplate = $('.apple-item-card').first().clone();
@@ -39,11 +41,29 @@ function loadOrderPageItems(itemsToLoad) {
         newCard.find('#order-item-name').text(item.itemName);
         newCard.find('#order-item-qty').text(`${item.quantity} In Stock`);
 
-        newCard.find('#order-cart-btn')
-            .off('click')
-            .on('click', function() {
-                addToCart(item.id);
-            });
+        const cartBtn = newCard.find('#order-cart-btn');
+
+        const isAdded = cart_db.some(c => c.id === item.id);
+
+        if (isAdded) {
+            // Bootstrap Icon: bi-bag-check-fill (Apple feel ekata mara set)
+            cartBtn.html(' Added <i class="bi bi-bag-check-fill"></i>')
+                .addClass('btn-added')
+                .css('pointer-events', 'none');
+        } else {
+            // Bootstrap Icon: bi-bag-plus
+            cartBtn.html(' Add to Cart <i class="bi bi-bag-plus"></i>')
+                .removeClass('btn-added')
+                .css('pointer-events', 'auto');
+        }
+
+        cartBtn.off('click').on('click', function() {
+            $(this).html(' Added <i class="bi bi-bag-check-fill"></i>')
+                .addClass('btn-added')
+                .css('pointer-events', 'none');
+
+            addToCart(item.id);
+        });
 
         itemGrid.append(newCard);
     });
