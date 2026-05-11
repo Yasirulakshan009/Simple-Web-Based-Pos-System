@@ -824,7 +824,7 @@ input:focus {
 }
 
 .item-price {
-    color: #34c759;
+    color: #28a745;
     font-weight: 700;
     font-size: 1.1rem;
     margin-left: 40px;
@@ -910,7 +910,7 @@ input:focus {
 .item-main-name { font-size: 0.9rem; font-weight: 700; color: #0468FF; margin-bottom: 2px; }
 
 
-.item-main-price { font-size: 0.8rem; font-weight: 700; color: #34c759; margin-bottom: 2px; }
+.item-main-price { font-size: 0.8rem; font-weight: 700; color: #28a745; margin-bottom: 2px; }
 
 .item-sub-tag { font-size: 0.7rem; color: #86868b; font-weight: 600; }
 
@@ -960,23 +960,45 @@ input:focus {
 }
 
 .history-window {
-    width: 500px;
+    width: 550px;
 }
 
-.win-content { padding: 40px; }
+.win-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 40px 30px 40px;
+}
+
+.order-items-scroll-box {
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.order-items-scroll-box::-webkit-scrollbar {
+    width: 4px;
+}
+
+.order-items-scroll-box::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
 
 .order-flex-layout {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 30px 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.info-side { flex: 1.2; }
-.image-side { flex: 0.8; display: flex; justify-content: center; margin-bottom: 50px; }
-
-.detail-group {
-    margin-bottom: 15px;
+.order-flex-layout:last-child {
+    border-bottom: none;
 }
+
+.info-side { flex: 1; }
+.image-side { flex: 1; display: flex; justify-content: center; }
+
+.detail-group { margin-bottom: 15px; }
 
 .detail-label {
     font-size: 0.65rem;
@@ -988,32 +1010,71 @@ input:focus {
     margin-bottom: 3px;
 }
 
-.detail-val { font-size: 1.5rem; font-weight: 700; color: #1d1d1f; margin: 0; }
+.detail-val {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3e3e3e;
+    margin: 0;
+}
+
 .text-blue { color: #007aff; }
-.price-blue { color: #007aff; font-weight: 800; font-size: 1.2rem; }
+
+.order-fixed-footer {
+    margin-top: 10px;
+}
 
 .separator-line {
     height: 1px;
-    background: rgba(0, 0, 0, 0.05);
-    margin: 20px 0;
+    background: rgba(0, 0, 0, 0.08);
+    margin-bottom: 15px;
 }
 
-.bottom-details { display: flex; gap: 40px; }
-.detail-val-sm { font-size: 1.1rem; font-weight: 600; color: #424245; }
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer-left {
+    display: flex;
+    gap: 40px;
+}
+
+.f-group { display: flex; flex-direction: column; }
+
+.footer-val-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #424245;
+    margin: 0;
+}
+
+.footer-val-date {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #424245;
+    margin: 0;
+}
+
+.price-blue {
+    color: #007aff;
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin: 0;
+}
 
 .apple-glass-card {
     background: rgba(255, 255, 255, 0.4);
     border-radius: 22px;
-    padding: 25px;
+    padding: 10px;
+    margin-right: 10px;
     border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 .apple-glass-card img {
     width: 100%;
-    max-width: 170px;
+    max-width: 180px;
     height: auto;
-    object-fit: contain;
 }
 
 .apple-toast {
@@ -1025,7 +1086,6 @@ input:focus {
 
 #btn-place-order {
     width: 50%;
-    /* Updated to Blue Gradient */
     background: linear-gradient(to right, #007aff 20%, #0468FF 100%);
     border: 1px solid #007aff;
     box-shadow: 0 3px 10px 0 rgba(0, 122, 255, 0.5);
@@ -1043,4 +1103,18 @@ input:focus {
     border: 1px solid #007aff;
     box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
     transform: translateY(-1px);
+}
+
+#sub-total {
+    color:#86868b;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: -5px;
+}
+
+#full-payment {
+    color:#28a745;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: -10px;
 }

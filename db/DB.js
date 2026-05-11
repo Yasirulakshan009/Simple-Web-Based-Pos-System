@@ -108,5 +108,7 @@ const item_db = [
 
 const  cart_db = [];
 
+const order_db = [];
 
-export {customer_db,item_db,cart_db};
+
+export {customer_db,item_db,cart_db,order_db};

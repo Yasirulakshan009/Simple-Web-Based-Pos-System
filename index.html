@@ -428,27 +428,24 @@
                     </div>
 
                     <div class="cart-details2">
-                        <div class="order-subtotal"><h1>SubTotal (LKR)</h1><span id="sub-total">9000.00</span></div>
+                        <div class="order-subtotal"><h1>SubTotal (LKR)</h1><span id="sub-total">0.00</span></div>
 
                         <div class="p-4">
                             <form id="orderForm" class="row g-3">
                                 <div class="col-6">
-                                        <select class="apple-select apple-input">
-                                            <option selected disabled>Select Customer</option>
-                                            <option value="1">1 - Yasiru Lakshan</option>
-                                            <option value="2">2 - Kamal Perera</option>
-                                            <option value="3">3 - Nimal Silva</option>
+                                        <select class="apple-select apple-input" id="order-customer-select">
+                                            <option id="customer-option-template" value="">Select Customer</option>
                                         </select>
                                 </div>
 
                                 <div class="col-6">
-                                    <input type="number" id="order-discount" class="form-control apple-input" placeholder="0.00 LKR">
+                                    <input type="number" id="order-discount" class="form-control apple-input" placeholder=" 0%">
                                 </div>
                             </form>
                         </div>
                         <div class="hr"></div>
 
-                        <div class="order-subtotal"><h1>Full Payment (LKR)</h1><span id="full-payment" >9000.00</span></div>
+                        <div class="order-subtotal"><h1>Full Payment (LKR)</h1><span id="full-payment" >0.00</span></div>
 
                         <div class="payment-method">
                             <div class="form-check form-check-inline">
@@ -489,7 +486,6 @@
                             <tr>
                                 <th>Order ID</th>
                                 <th>Customer</th>
-                                <th>Item</th>
                                 <th>Sub Total</th>
                                 <th>Discount</th>
                                 <th>Total Price</th>
@@ -501,63 +497,6 @@
                             <tr>
                                 <td>1</td>
                                 <td>Yasiru Lakhasn</td>
-                                <td>Mouse</td>
-                                <td>10000.00</td>
-                                <td>1000.00</td>
-                                <td>9000.00</td>
-                                <td>Cash</td>
-                                <td>
-                                    <button class="order-view-action view btn btn-sm"><i class="bi bi-eye"></i></button>
-                                    <button class="order-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Yasiru Lakhasn</td>
-                                <td>Mouse</td>
-                                <td>10000.00</td>
-                                <td>1000.00</td>
-                                <td>9000.00</td>
-                                <td>Cash</td>
-                                <td>
-                                    <button class="order-view-action view btn btn-sm"><i class="bi bi-eye"></i></button>
-                                    <button class="order-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Yasiru Lakhasn</td>
-                                <td>Mouse</td>
-                                <td>10000.00</td>
-                                <td>1000.00</td>
-                                <td>9000.00</td>
-                                <td>Cash</td>
-                                <td>
-                                    <button class="order-view-action view btn btn-sm"><i class="bi bi-eye"></i></button>
-                                    <button class="order-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Yasiru Lakhasn</td>
-                                <td>Mouse</td>
-                                <td>10000.00</td>
-                                <td>1000.00</td>
-                                <td>9000.00</td>
-                                <td>Cash</td>
-                                <td>
-                                    <button class="order-view-action view btn btn-sm"><i class="bi bi-eye"></i></button>
-                                    <button class="order-delete-action delete btn btn-sm "><i class="bi bi-trash"></i></button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Yasiru Lakhasn</td>
-                                <td>Mouse</td>
                                 <td>10000.00</td>
                                 <td>1000.00</td>
                                 <td>9000.00</td>
@@ -573,7 +512,7 @@
                 </div>
             </div>
 
-            <div id="order-details" style="display: none;">
+            <div id="order-details" style="display: none" >
                 <div class="glass-overlay"></div>
                 <div class="apple-window history-window">
                     <div class="win-header">
@@ -586,49 +525,52 @@
                     </div>
 
                     <div class="win-content">
-                        <div class="order-flex-layout">
-
-                            <div class="info-side">
-                                <div class="detail-group">
-                                    <span class="detail-label">Product Name</span>
-                                    <h2 class="detail-val text-dark" id="detail-item-name">MacBook</h2>
+                        <div class="order-items-scroll-box">
+                            <div id="items-holder">
+                                <div class="order-flex-layout">
+                                    <div class="info-side">
+                                        <div class="detail-group">
+                                            <span class="detail-label">Product Name</span>
+                                            <h2 class="detail-val">MacBook</h2>
+                                        </div>
+                                        <div class="detail-group">
+                                            <span class="detail-label">Model</span>
+                                            <h3 class="detail-val text-blue">Air M4</h3>
+                                        </div>
+                                        <div class="detail-group">
+                                            <span class="detail-label">Brand</span>
+                                            <h3 class="detail-val">Apple</h3>
+                                        </div>
+                                    </div>
+                                    <div class="image-side">
+                                        <div class="apple-glass-card">
+                                            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/studio-display-gallery-1-202203?wid=1280&hei=720&fmt=p-jpg" alt="Item">
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
 
-                                <div class="detail-group">
-                                    <span class="detail-label">Model</span>
-                                    <h3 class="detail-val text-blue" id="detail-item-model">Air M4</h3>
-                                </div>
-
-                                <div class="detail-group">
-                                    <span class="detail-label">Brand</span>
-                                    <h3 class="detail-val" id="detail-brand">Apple</h3>
-                                </div>
-
-                                <div class="separator-line"></div>
-
-                                <div class="bottom-details">
-                                    <div class="detail-group">
+                        <div class="order-fixed-footer">
+                            <div class="separator-line"></div>
+                            <div class="footer-row">
+                                <div class="footer-left">
+                                    <div class="f-group">
+                                        <span class="detail-label">Customer</span>
+                                        <h2 class="footer-val-name" id="detail-customer-name">Yasiru Lakshan</h2>
+                                    </div>
+                                    <div class="f-group">
                                         <span class="detail-label">Date</span>
-                                        <p class="detail-val-sm" id="detail-date">2026-05-06</p>
+                                        <p class="footer-val-date" id="detail-date">2026-05-12</p>
                                     </div>
-                                    <div class="detail-group">
+                                </div>
+                                <div class="footer-right">
+                                    <div class="d-flex flex-column align-items-end">
                                         <span class="detail-label">Total Amount</span>
-                                        <p class="detail-val-sm price-blue" id="detail-total">LKR 450,000</p>
+                                        <h2 class="price-blue" id="detail-total">LKR 845,000.00</h2>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="image-side">
-                                <div class="detail-group">
-                                    <span class="detail-label">Customer Name</span>
-                                    <p class="detail-val-sm " id="detail-customer-name">Yasiru Lakshan</p>
-                                </div>
-
-                                <div class="apple-glass-card">
-                                    <img src="assest/pictures/macbook.png" id="detail-item-img" alt="Item">
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
