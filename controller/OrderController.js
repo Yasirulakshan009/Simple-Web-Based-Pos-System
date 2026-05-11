@@ -54,14 +54,17 @@ function loadOrderPageItems(itemsToLoad) {
         if (isAdded) {
             cartBtn.html(' Added <i class="bi bi-bag-check-fill"></i>')
                 .addClass('btn-added')
+                .prop('disabled', true);
         } else {
             cartBtn.html(' Add to Cart <i class="bi bi-bag-plus"></i>')
                 .removeClass('btn-added')
+                .prop('disabled', false);
         }
 
         cartBtn.off('click').on('click', function() {
             $(this).html(' Added <i class="bi bi-bag-check-fill"></i>')
                 .addClass('btn-added')
+                .prop('disabled', true);
 
             addToCart(item.id);
 
@@ -80,6 +83,7 @@ function loadOrderPageItems(itemsToLoad) {
 
                 cartBtn.html(' Add to Cart <i class="bi bi-bag-plus"></i>')
                     .removeClass('btn-added')
+                    .prop('disabled', false);
             });
 
             newCartItem.find('#plusBtn').on('click', function() {
