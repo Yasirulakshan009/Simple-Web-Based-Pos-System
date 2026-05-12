@@ -1,3 +1,5 @@
+import { updateDashboard } from "./DashboardController.js";
+
 const loginBtn = document.getElementById('loginBtn');
 if (loginBtn) {
     loginBtn.addEventListener('click', function(e) {
@@ -17,7 +19,7 @@ if (loginBtn) {
                 loginSec.style.display = 'none';
                 dashSec.style.display = 'flex';
 
-
+                updateDashboard();
             }
 
         } else {
@@ -39,11 +41,17 @@ if (checkbox && passwordInput) {
 const logoutBtn = document.querySelector('.logout-link');
 if (logoutBtn) {
     logoutBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('login-section').style.display = 'flex';
-        document.getElementById('dashboard-section').style.display = 'none';
 
-        document.getElementById('exampleInputUsername').value = "";
-        document.getElementById('exampleInputPassword1').value = "";
+        e.preventDefault();
+
+        let logoutConfirm = confirm("Are you sure you want to logout?");
+        if (logoutConfirm) {
+            document.getElementById('login-section').style.display = 'flex';
+            document.getElementById('dashboard-section').style.display = 'none';
+
+            document.getElementById('exampleInputUsername').value = "";
+            document.getElementById('exampleInputPassword1').value = "";
+            localStorage.removeItem("loggedUser");
+        }
     });
 }

@@ -41,8 +41,89 @@ export function updateDashboard() {
             </tr>
         `);
     });
+
+    renderChart();
+}
+
+$('.recent-btn .btn-outline-dark').on('click', function() {
+    $('#dashboard-view').hide();
+    $('#order-history-view').show();
+
+    $('.nav-link').removeClass('active');
+    $('#nav-history').addClass('active');
+});
+
+$('.recent-btn .btn-primary').on('click', function() {
+    $('#dashboard-view').hide();
+    $('#item-view').show();
+
+    $('.nav-link').removeClass('active');
+    $('#nav-items').addClass('active');
+
+    $('#btn-new-item').trigger('click');
+});
+
+function getWeeklySalesData() {
+    const allOrders = getAllOrders();
+    const salesData = [0, 0, 0, 0, 0, 0, 0]; // Sun to Sat
+
+    allOrders.forEach(order => {
+        const orderDate = new Date(order.date);
+        const dayIndex = orderDate.getDay();
+
+        let amount = parseFloat(String(order.totalAmount).replace(/,/g, ''));
+        if (!isNaN(amount)) {
+            salesData[dayIndex] += amount;
+        }
+    });
+    return salesData;
+}
+
+
+let myChart;
+
+function renderChart() {
+    const chartElement = document.getElementById('myLineChart');
+    if (!chartElement) return;
+
+    if (myChart) {
+        myChart.destroy();
+    }
+
+    const labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    myChart = new Chart(chartElement, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Weekly Sales',
+                data: getWeeklySalesData(),
+                pointRadius: 5,
+                fill: true,
+                borderColor: '#007aff',
+                tension: 0.3,
+                backgroundColor: function(context) {
+                    const chart = context.chart;
+                    const {ctx, chartArea} = chart;
+                    if (!chartArea) return null;
+                    const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+                    gradient.addColorStop(1, '#007aff');
+                    gradient.addColorStop(0.5, '#52a2ff');
+                    gradient.addColorStop(0, '#FFFFFF');
+                    return gradient;
+                }
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+        }
+    });
 }
 
 $(document).ready(() => {
     updateDashboard();
 });
+

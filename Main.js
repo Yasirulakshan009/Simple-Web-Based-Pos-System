@@ -25,6 +25,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if(targetView) targetView.style.display = 'block';
         if(activeLink) activeLink.classList.add('active');
+
+        const searchBar = document.getElementById('search_input');
+        const headerInfo = document.getElementById('dashboard-header-info');
+
+        if (targetView === dashboardView) {
+            if(searchBar) searchBar.style.display = 'none';
+            if(headerInfo) {
+                headerInfo.style.display = 'block';
+                updateGreeting();
+            }
+        } else {
+            if(headerInfo) headerInfo.style.display = 'none';
+            if(searchBar) searchBar.style.display = 'flex';
+        }
+    }
+
+    function updateGreeting() {
+        const greetingElement = document.getElementById('greeting-text');
+        const dateElement = document.getElementById('current-date');
+
+        const now = new Date();
+        const hours = now.getHours();
+
+        let greeting = "Good Night";
+        if (hours < 12) greeting = "Good Morning ☀️";
+        else if (hours < 16) greeting = "Good Afternoon 🌤️";
+        else if (hours < 21) greeting = "Good Evening 🌙";
+
+        if(greetingElement) greetingElement.innerText = `${greeting}, Admin!`;
+
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        if(dateElement) dateElement.innerText = now.toLocaleDateString('en-US', options);
     }
 
     if (navDashboard) {
@@ -64,56 +96,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     showView(dashboardView, navDashboard);
 
-
-
-    /*|||||||||||line chart|||||||||||||||||*/
-
-    const chartElement = document.getElementById('myLineChart');
-
-    if (chartElement) {
-        const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: 'Weekly Sales',
-                data: [50, 200, 160, 90, 200, 170, 210],
-                pointRadius: 5,
-                pointHoverRadius: 8,
-                fill: true,
-                borderColor: '#007aff',
-                tension: 0.3,
-
-                backgroundColor: function(context) {
-                    const chart = context.chart;
-                    const {ctx, chartArea} = chart;
-
-                    if (!chartArea) {
-                        return null;
-                    }
-
-                    const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
-                    gradient.addColorStop(1, '#007aff');
-                    gradient.addColorStop(0.5, '#52a2ff');
-                    gradient.addColorStop(0, '#FFFFFF');
-
-                    return gradient;
-                }
-            }]
-        };
-
-        new Chart(chartElement, {
-            type: 'line',
-            data: data,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: { beginAtZero: true }
-                }
-            }
-        });
-    }
-
- });
+});
 

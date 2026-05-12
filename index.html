@@ -71,6 +71,13 @@
                 <form class="d-flex" role="search" onsubmit="return false;">
                     <input class="form-control me-0" id="search_input" type="search" placeholder="Search..." aria-label="Search"/>
                 </form>
+
+                <div class="d-flex justify-content-end align-items-center w-100">
+                    <div id="dashboard-header-info" style="display: none;">
+                        <h5 id="greeting-text" class="mb-0 fw-bold"></h5>
+                        <small id="current-date"></small>
+                    </div>
+                </div>
             </div>
         </nav>
 
@@ -84,7 +91,7 @@
                                 <div class="text-start">
                                     <p class="stat-label">Customers</p>
                                     <h4 id="total-customers" class="stat-value text-success">10</h4>
-                                    <p class="stat-trend text-blue">Real-time data update</p>
+                                    <p class="stat-trend text-secondary">Real-time data update</p>
                                 </div>
                                 <div class="stat-icon-box"><i class="bi bi-people-fill"></i></div>
                             </div>
@@ -96,7 +103,7 @@
                                 <div class="text-start">
                                     <p class="stat-label">Items</p>
                                     <h4 id="total-items" class="stat-value text-success">2</h4>
-                                    <p class="stat-trend text-blue">Real-time data update</p>
+                                    <p class="stat-trend text-secondary">Real-time data update</p>
                                 </div>
                                 <div class="stat-icon-box"><i class="bi bi-list-task"></i></div>
                             </div>
@@ -111,7 +118,7 @@
                                 <div class="text-start">
                                     <p class="stat-label">Orders</p>
                                     <h4 id="total-orders" class="stat-value text-success">2</h4>
-                                    <p class="stat-trend text-blue">Real-time data update</p>
+                                    <p class="stat-trend text-secondary">Real-time data update</p>
                                 </div>
                                 <div class="stat-icon-box"><i class="bi bi-cart-fill"></i></div>
                             </div>
@@ -123,7 +130,7 @@
                                 <div class="text-start">
                                     <p class="stat-label">Total Revenue</p>
                                     <h4 id="total-revenue" class="stat-value text-success">120,000</h4>
-                                    <p class="stat-trend text-blue">Real-time data update</p>
+                                    <p class="stat-trend text-secondary">Real-time data update</p>
                                 </div>
                                 <div class="stat-icon-box"><i class="bi bi-cash-stack"></i></div>
                             </div>
@@ -558,7 +565,7 @@
 <script src="assets/lib/jquery-4.0.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="javaScript.js"></script>
+<script src="Main.js"></script>
 <script type="module" src="controller/CustomerController.js"></script>
 <script type="module" src="controller/ItemController.js"></script>
 <script type="module" src="controller/OrderController.js"></script>
