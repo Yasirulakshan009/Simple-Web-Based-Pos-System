@@ -16,7 +16,7 @@ function loadOrderPageItems(itemsToLoad) {
     let allItems = (itemsToLoad !== undefined) ? itemsToLoad : getItemData();
 
     if(allItems.length === 0){
-        itemGrid.html(`<h2 style="width:100%; text-align:center; color:#b0b0b0; font-size:32px; font-weight:600;">No Items Found !</h2>`);
+        itemGrid.html(`<h2 style="width:100%; display:flex; justify-content:center; align-items:center; color:#b0b0b0; font-size:32px; font-weight:600;">No Items Found !</h2>`);
         return;
     }
 
@@ -48,11 +48,12 @@ function loadOrderPageItems(itemsToLoad) {
             newCartItem.find('.item-model').text(item.model);
             newCartItem.find('.item-name').text(item.itemName);
             newCartItem.find('.item-price').text(item.sellingPrice);
+
             const currentQtyInput = newCartItem.find('input').val(1);
 
             newCartItem.find('.cart-del-btn').on('click' , function (){
                 let itemIndex = cart_db.findIndex(c => c.id === item.id);
-                if (itemIndex !== -1) cart_db.splice(itemIndex, 1);
+                if (itemIndex !== -1) { cart_db.splice(itemIndex, 1); }
                 newCartItem.remove();
                 calculateTotal();
                 loadOrderPageItems();
@@ -81,13 +82,17 @@ function loadOrderPageItems(itemsToLoad) {
 function calculateTotal() {
     let subTotal = 0;
     $('.apple-cart-item').each(function () {
-        subTotal += parseFloat($(this).find('.item-price').text()) * parseInt($(this).find('input').val());
+        let price = parseFloat($(this).find('.item-price').text());
+        let qty = parseInt($(this).find('input').val());
+        subTotal += price * qty;
     });
-    $('#sub-total').text(subTotal);
+
+    $('#sub-total').text(subTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 
     let discountPercent = parseFloat($('#order-discount').val()) || 0;
     let fullPayment = subTotal - (subTotal * discountPercent / 100);
-    $('#full-payment').text(fullPayment);
+
+    $('#full-payment').text(fullPayment.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 }
 
 const customerOptionTemplate = $('#customer-option-template').clone();
@@ -101,9 +106,8 @@ function loadAllCustomers() {
 }
 
 $('#btn-place-order').on('click', function () {
-    if (!$('#order-customer-select').val()) return alert("Please select a customer.");
-    if ($('.apple-cart-item').length === 0) return alert("Your cart is empty.");
-    if (!$('input[name="inlineRadioOptions"]:checked').val()) return alert("Please select a payment method.");
+    if (!$('#order-customer-select').val()) return alert("Select Customer");
+    if ($('.apple-cart-item').length === 0) return alert("Cart empty");
 
     let purchasedItems = [];
     $('.apple-cart-item').each(function () {
@@ -126,7 +130,7 @@ $('#btn-place-order').on('click', function () {
     };
 
     if (saveOrder(orderData)) {
-        alert("Order Success: The order has been placed successfully!");
+        alert("Order Success!");
         cart_db.length = 0;
         clearOrderForm();
         loadOrderPageItems();

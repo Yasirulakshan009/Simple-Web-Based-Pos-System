@@ -32,7 +32,6 @@ class Order {
 }
 
 const saveOrder = (orderData) => {
-    // Controller එකෙන් එවන සරල දත්ත ටිකෙන් අලුත් Class Object එකක් හදනවා
     const newOrder = new Order(
         orderData.orderId,
         orderData.customerName,
@@ -51,8 +50,13 @@ const getAllOrders = () => {
     return order_db;
 };
 
-const getOrderById = (id) => {
-    return order_db.find(o => o.orderId === id);
+const deleteOrder = (id) => {
+    const index = order_db.findIndex(o => o.orderId === id);
+    if (index !== -1) {
+        order_db.splice(index, 1);
+        return true;
+    }
+    return false;
 };
 
-export { saveOrder, getAllOrders, getOrderById };
+export { saveOrder, getAllOrders, deleteOrder };
