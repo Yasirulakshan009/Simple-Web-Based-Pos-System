@@ -220,7 +220,7 @@ input:focus {
 
 .stat-card {
     background: white;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     height: auto;
@@ -230,7 +230,7 @@ input:focus {
 }
 
 .custom-width {
-    width: 21%;
+    width: 22%;
 }
 
 .stat-card::after {
@@ -256,7 +256,7 @@ input:focus {
 }
 .stat-value {
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-top: 25px;
 }
 .stat-trend {
     font-size: 0.6rem;

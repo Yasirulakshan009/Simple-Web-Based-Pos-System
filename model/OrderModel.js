@@ -42,7 +42,7 @@ const saveOrder = (orderData) => {
         orderData.paymentMethod,
         orderData.items
     );
-    order_db.unshift(newOrder);
+    order_db.push(newOrder);
     return true;
 };
 

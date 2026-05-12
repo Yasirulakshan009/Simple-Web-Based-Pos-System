@@ -1,4 +1,5 @@
 import { getAllOrders, deleteOrder } from "../model/OrderModel.js";
+import { updateDashboard } from "../controller/DashboardController.js";
 
 const itemTemplate = $('.order-flex-layout').first().clone();
 
@@ -8,7 +9,9 @@ export function loadOrderTable(ordersToDisplay) {
     const allOrdersOriginal = getAllOrders();
     const displayList = (ordersToDisplay !== undefined) ? ordersToDisplay : allOrdersOriginal;
 
-    displayList.forEach((order) => {
+    for (let i = displayList.length - 1; i >= 0; i--) {
+        const order = displayList[i];
+
         let originalIndex = allOrdersOriginal.findIndex(o => o.orderId === order.orderId);
         let displayId = "ORD-" + String(originalIndex + 1).padStart(3, '0');
 
@@ -26,7 +29,7 @@ export function loadOrderTable(ordersToDisplay) {
                 </td>
             </tr>
         `);
-    });
+    }
 }
 
 $('#search_input').on('input', function () {
@@ -49,6 +52,7 @@ $(document).on('click', '.order-delete-action', function() {
         if (deleteOrder(id)) {
             alert("Order Deleted!");
             loadOrderTable();
+            updateDashboard();
         }
     }
 });

@@ -1,5 +1,7 @@
 import {addItemData, getItemDataById, getItemData, updateItemData, deleteItemData, generateNextItemId, searchItem} from "../model/ItemModel.js";
 import { loadOrderPageItems } from "../controller/OrderController.js";
+import { updateDashboard } from "../controller/DashboardController.js";
+
 
 const itemTitle = $('#item-title');
 const saveUpdateBtn =  $('#item-btn-save');
@@ -161,6 +163,7 @@ saveUpdateBtn.on('click', function () {
         addItemModal.hide();
         loadItemTable();
         loadOrderPageItems();
+        updateDashboard();
 
 
     }else{
@@ -208,7 +211,7 @@ $('#item-table').on('click', '.item-delete-action', function () {
             deleteItemData(id);
             loadItemTable();
             loadOrderPageItems();
-
+            updateDashboard();
 
             playAppleSound();
 

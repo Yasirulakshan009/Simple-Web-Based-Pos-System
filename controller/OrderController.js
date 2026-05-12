@@ -1,7 +1,8 @@
 import { getItemData, searchItem, addToCart } from "../model/ItemModel.js";
 import { getCustomerData } from "../model/CustomerModel.js";
 import { saveOrder } from "../model/OrderModel.js";
-import { loadOrderTable } from "./OrderHistoryController.js";
+import { loadOrderTable } from "../controller/OrderHistoryController.js";
+import { updateDashboard } from "../controller/DashboardController.js";
 import { cart_db } from "../db/DB.js";
 
 const itemGrid = $('#item-grid');
@@ -135,6 +136,7 @@ $('#btn-place-order').on('click', function () {
         clearOrderForm();
         loadOrderPageItems();
         loadOrderTable();
+        updateDashboard();
     }
 });
 

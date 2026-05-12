@@ -1,6 +1,8 @@
 import { addCustomerData, getCustomerData, updateCustomerData, deleteCustomerData, searchCustomer, getCustomerDataById,generateNextCustomerId } from '../model/CustomerModel.js';
 import {check_phone} from '../utills/rege_utills.js';
 import {loadAllCustomers} from "../controller/OrderController.js";
+import { updateDashboard } from "../controller/DashboardController.js";
+
 
 const addCustomerModal = $('#add-customer');
 const modalTitle = $('#customer-title');
@@ -180,6 +182,7 @@ saveUpdateButton.on('click', function () {
         addCustomerModal.hide();
         loadCustomerTable();
         loadAllCustomers();
+        updateDashboard();
 
 
     } else {
@@ -227,6 +230,8 @@ $('#customer-table').on('click', '.btn-delete-action', function () {
             deleteCustomerData(id);
             loadCustomerTable();
             loadAllCustomers();
+            updateDashboard();
+
 
 
             playAppleSound();
